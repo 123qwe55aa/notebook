@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>大学物理期末复习 Playground</title>
   <meta name="description" content="基于 NotebookLM、xuexitong PDF 与整合资料生成的大学物理期末复习交互网站。" />
-  <link rel="stylesheet" href="styles.css?v=playground2" />
+  <link rel="stylesheet" href="styles.css?v=playground3" />
   <script>
     window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }, svg: { fontCache: 'global' } };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="app.js?v=playground2"></script>
+  <script defer src="app.js?v=playground3"></script>
 </head>
 <body>
   <header class="hero" id="top">
@@ -64,19 +64,6 @@
       </div>
       <div class="chapter-tabs" id="chapterTabs" role="tablist" aria-label="章节选择"></div>
       <div class="playground" id="chapterPanel"></div>
-      <article class="exercise-bank">
-        <div class="exercise-bank-head">
-          <h3>原习题集题库（自动解析）</h3>
-          <p>从 `大学物理_原习题集_sources.pdf` 自动抽取题号与题干，支持关键词检索。</p>
-        </div>
-        <div class="exercise-tools">
-          <label class="search-box bank-search"><span>检索</span><input id="exerciseSearch" type="search" placeholder="如：electric force / 高斯 / magnetic field" /></label>
-          <label class="search-box bank-search"><span>章节</span><input id="exerciseSection" type="search" placeholder="如：01 / 10 / 21" /></label>
-        </div>
-        <div class="exercise-meta" id="exerciseMeta">题库载入中...</div>
-        <div class="exercise-list" id="exerciseList"></div>
-        <button class="button ghost compact" id="loadMoreExercises" type="button">加载更多</button>
-      </article>
     </section>
 
     <section class="section formula-section" id="formulas" aria-labelledby="formula-title">
@@ -127,6 +114,19 @@
         <article class="resource-card"><h3>原习题集</h3><p>从 sources 原始题页抽取，保留教材和课件的原版排版。</p><a class="button primary small" href="./assets/pdfs/大学物理_原习题集_sources.pdf">打开习题集</a></article>
         <article class="resource-card"><h3>整合 PDF</h3><p>静电场、磁场、变化磁场、量子力学等内容的整合版。</p><a class="button ghost small" href="./assets/pdfs/大学物理_静电场_磁场_量子力学_整合版.pdf">打开整合 PDF</a></article>
         <article class="resource-card"><h3>学习通原始资料</h3><p>本地保存的 PDF，以及由原课件转换出的 PDF 版资料。</p><a class="button ghost small" href="./assets/pdf_exports/">打开 PDF 资料文件夹</a></article>
+        <article class="resource-card exercise-bank resource-bank-card">
+          <div class="exercise-bank-head">
+            <h3>原习题集题库（自动解析）</h3>
+            <p>从 `大学物理_原习题集_sources.pdf` 按 PDF 坐标块重新解析，支持关键词和章节检索。</p>
+          </div>
+          <div class="exercise-tools">
+            <label class="search-box bank-search"><span>检索</span><input id="exerciseSearch" type="search" placeholder="如：electric force / 高斯 / magnetic field" /></label>
+            <label class="search-box bank-search"><span>章节</span><input id="exerciseSection" type="search" placeholder="如：01 / 10 / 21" /></label>
+          </div>
+          <div class="exercise-meta" id="exerciseMeta">题库载入中...</div>
+          <div class="exercise-list" id="exerciseList"></div>
+          <button class="button ghost compact" id="loadMoreExercises" type="button">加载更多</button>
+        </article>
       </div>
     </section>
   </main>

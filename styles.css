@@ -192,6 +192,7 @@ li { margin: 9px 0; line-height: 1.55; }
 .resource-card { padding: 24px; }
 .resource-card h3 { color: var(--navy); font-size: 28px; }
 .resource-card.feature { background: linear-gradient(140deg, #fff, #edf6f3); }
+.resource-bank-card { grid-column: 1 / -1; }
 .link-list { display: grid; gap: 10px; }
 .link-list a { padding: 12px 14px; border-radius: 14px; background: white; border: 1px solid var(--line); text-decoration: none; color: var(--navy); font-weight: 800; }
 .footer { width: min(1180px, calc(100% - 32px)); margin: 22px auto 44px; color: var(--muted); display: flex; justify-content: space-between; gap: 16px; }

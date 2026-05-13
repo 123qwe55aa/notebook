@@ -97,7 +97,6 @@ let activeChapter = 0;
 let exerciseData = [];
 let exerciseFiltered = [];
 let exerciseVisible = 40;
-let chapterExerciseVisible = 20;
 
 function diagramSvg(type) {
   const common = '<svg class="diagram" viewBox="0 0 520 300" role="img" aria-label="应用示意图"><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="currentColor"/></marker></defs>';
@@ -117,10 +116,6 @@ function renderTabs() {
 
 function renderChapter() {
   const ch = chapters[activeChapter];
-  const chapterQuestions = exerciseData.filter(
-    item => String(item.section || '').padStart(2, '0') === ch.number
-  );
-  const chapterVisible = chapterQuestions.slice(0, chapterExerciseVisible);
   document.querySelector('#chapterPanel').innerHTML = `
     <article class="note-board">
       <div class="board-header"><span>CH ${ch.number}</span><h3>${ch.title}</h3><a href="${ch.source}">${ch.sourceLabel}</a></div>
@@ -135,14 +130,6 @@ function renderChapter() {
       <div class="practice-column"><h4>选择题</h4>${ch.multiple.map((q, i) => renderChoice(q, i)).join('')}</div>
       <div class="practice-column"><h4>填空题</h4>${ch.blanks.map((q, i) => renderBlank(q, i)).join('')}</div>
       <div class="application-card"><h4>应用图题：${ch.application.title}</h4>${diagramSvg(ch.diagram)}<p>${ch.application.prompt}</p><button class="reveal-app" type="button">显示解题思路</button><div class="app-answer">${ch.application.answer}</div></div>
-    </article>
-    <article class="exercise-bank">
-      <div class="exercise-bank-head">
-        <h3>本章原习题集题目</h3>
-        <p>当前章节共 ${chapterQuestions.length} 题，已展示 ${chapterVisible.length} 题。</p>
-      </div>
-      <div class="exercise-list">${chapterVisible.map(item => `<article class="exercise-item"><h4>${item.id} · Section ${item.section || '--'} · p.${item.page}</h4><p>${item.text}</p></article>`).join('') || '<div class="exercise-meta">题库载入中或当前章节暂无匹配题目。</div>'}</div>
-      <button class="button ghost compact" id="loadMoreChapterExercises" type="button" style="${chapterVisible.length >= chapterQuestions.length ? 'display:none;' : ''}">加载本章更多题目</button>
     </article>`;
   if (window.MathJax?.typesetPromise) MathJax.typesetPromise();
 }
@@ -204,7 +191,6 @@ async function initExerciseBank() {
     const data = await res.json();
     exerciseData = Array.isArray(data.questions) ? data.questions : [];
     exerciseFiltered = exerciseData;
-    renderChapter();
     renderExercises();
   } catch (error) {
     if (meta) meta.textContent = '题库加载失败：请确认 exercise_questions_parsed.json 存在。';
@@ -215,7 +201,6 @@ document.addEventListener('click', event => {
   const tab = event.target.closest('.chapter-tab');
   if (tab) {
     activeChapter = Number(tab.dataset.chapter);
-    chapterExerciseVisible = 20;
     renderTabs();
     renderChapter();
     return;
@@ -247,11 +232,6 @@ document.addEventListener('click', event => {
     app.textContent = app.closest('.application-card').classList.contains('revealed') ? '隐藏解题思路' : '显示解题思路';
     if (window.MathJax?.typesetPromise) MathJax.typesetPromise();
     return;
-  }
-  const loadChapter = event.target.closest('#loadMoreChapterExercises');
-  if (loadChapter) {
-    chapterExerciseVisible += 20;
-    renderChapter();
   }
 });
 
