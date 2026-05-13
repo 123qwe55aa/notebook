@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>大学物理期末复习综合指南</title>
+  <style>:root { --bg:#f7f8fa; --fg:#1c2430; --muted:#5f6b7a; --line:#d6dde7; --card:#ffffff; --head:#0f2f57; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.7 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif; }
+main { max-width: 980px; margin: 0 auto; padding: 32px 18px 56px; }
+h1,h2,h3 { color: var(--head); line-height: 1.25; }
+h1 { font-size: 2rem; margin: 0 0 1rem; }
+h2 { margin-top: 2rem; padding-top: .8rem; border-top: 1px solid var(--line); }
+table { width:100%; border-collapse: collapse; margin: 1rem 0; background: var(--card); }
+th,td { border:1px solid var(--line); padding:.55rem .65rem; vertical-align: top; }
+th { background:#eef4fb; text-align:left; }
+code { background:#eef2f6; padding:.08rem .3rem; border-radius:4px; }
+pre { background:#eef2f6; padding:12px; border-radius:8px; overflow:auto; }
+blockquote { margin: 1rem 0; border-left: 4px solid #9ab3d1; padding: .2rem .9rem; color: var(--muted); }
+.small { color: var(--muted); font-size: .9rem; margin-bottom: 1.25rem; }</style>
+  <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <main>
+    <p class="small">该页面已启用 MathJax 公式渲染。</p>
+    <h1>大学物理期末复习综合指南：静电场与狭义相对论</h1>
+<p>本指南旨在综合静电场理论、导体静电平衡以及狭义相对论动力学核心内容，为大学物理期末复习提供系统性的知识梳理与练习。</p>
+<hr />
+<h2>第一部分：核心概念与公式汇编</h2>
+<h3>1. 静电场基础 (Electrostatics)</h3>
+<ul>
+<li><strong>电荷的基本性质：</strong><ul>
+<li><strong>量子化：</strong> 电荷是不连续的，$q = \pm ne$，其中 $e = 1.602 \times 10^{-19}$ C。</li>
+<li><strong>守恒定律：</strong> 一个孤立系统的电荷代数和保持不变。</li>
+</ul>
+</li>
+<li><strong>库仑定律 (Coulomb's Law)：</strong><ul>
+<li>公式：$\vec{F} = \frac{1}{4\pi\epsilon_0} \frac{q_1 q_2}{r^2} \vec{e}_r$。</li>
+<li>常数：$\epsilon_0 = 8.85 \times 10^{-12} \text{ C}^2/(\text{N}\cdot\text{m}^2)$，$\frac{1}{4\pi\epsilon_0} \approx 9 \times 10^9 \text{ N}\cdot\text{m}^2/\text{C}^2$。</li>
+</ul>
+</li>
+<li><strong>电场强度 ($\vec{E}$)：</strong><ul>
+<li>定义：$\vec{E} = \frac{\vec{F}}{q_0}$（单位正试验电荷受到的力）。</li>
+<li><strong>点电荷场强：</strong> $E = \frac{1}{4\pi\epsilon_0} \frac{Q}{r^2}$。</li>
+<li><strong>电偶极子：</strong> 电矩 $\vec{p} = q\vec{r}_0$。<ul>
+<li>轴线上一点：$E \approx \frac{1}{4\pi\epsilon_0} \frac{2p}{x^3}$ ($x \gg r_0$)。</li>
+<li>中垂线上一点：$E \approx -\frac{1}{4\pi\epsilon_0} \frac{p}{y^3}$ ($y \gg r_0$)。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>连续带电体场强计算步骤：</strong><ol>
+<li>选择合适的电荷微元 $dq$（$\rho dV, \sigma dS, \lambda dl$）。</li>
+<li>建立坐标系，写出 $d\vec{E}$ 并进行正交分解。</li>
+<li>利用积分求解各分量。
+*   <strong>典型结论：</strong><ul>
+<li>均匀带电圆环轴线上：$E = \frac{qx}{4\pi\epsilon_0(x^2+R^2)^{3/2}}$。</li>
+<li>无限大带电平板：$E = \frac{\sigma}{2\epsilon_0}$。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3>2. 静电场中的导体 (Conductors in Electric Fields)</h3>
+<ul>
+<li><strong>静电感应与平衡：</strong><ul>
+<li><strong>感应电荷：</strong> 导体受外场作用导致内部自由电子重新分布。</li>
+<li><strong>静电平衡条件：</strong><ol>
+<li>导体内部任何一点场强为零 ($\vec{E}_{in} = 0$)。</li>
+<li>导体表面场强垂直于表面。</li>
+<li>整个导体是等势体，表面是等势面。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>电荷分布：</strong><ul>
+<li>实心导体：电荷仅分布在表面，内部无净电荷。</li>
+<li>空腔导体：若腔内无电荷，电荷分布在外表面；若腔内有 $+q$，内表面感应 $-q$，外表面感应 $+q$。</li>
+<li><strong>曲率关系：</strong> 表面电荷密度 $\sigma$ 与曲率半径有关；曲率半径越小（越尖锐），$\sigma$ 越大（<strong>尖端放电</strong>原理）。</li>
+</ul>
+</li>
+<li><strong>静电屏蔽：</strong> 接地空腔导体可屏蔽内、外电场干扰。</li>
+</ul>
+<h3>3. 狭义相对论动力学 (Relativistic Dynamics)</h3>
+<ul>
+<li><strong>质量与速度：</strong><ul>
+<li>相对论质量：$m = \frac{m_0}{\sqrt{1-\beta^2}}$，其中 $\beta = v/c$。</li>
+<li>质点质量随速度增加而增大。</li>
+</ul>
+</li>
+<li><strong>动量与能量：</strong><ul>
+<li>相对论动量：$\vec{p} = m\vec{v} = \gamma m_0\vec{v}$。</li>
+<li>相对论动能：$E_k = mc^2 - m_0^2 = m_0c^2 (\frac{1}{\sqrt{1-\beta^2}} - 1)$。</li>
+<li>静能量：$E_0 = m_0c^2$。</li>
+<li>总能量：$E = E_k + E_0 = mc^2$。</li>
+</ul>
+</li>
+<li><strong>质能关系与能量-动量关系：</strong><ul>
+<li>质能关系：$E = mc^2$，表明质量与能量具有紧密联系。</li>
+<li>关系式：$E^2 = E_0^2 + p^2c^2$ 或 $(mc^2)^2 = (m_0c^2)^2 + (pc)^2$。</li>
+</ul>
+</li>
+<li><strong>光子特性：</strong> 静止质量 $m_0 = 0$，速度始终为 $c$，能量 $E = h\nu$，动量 $p = E/c$。</li>
+</ul>
+<hr />
+<h2>第二部分：短答练习题 (Short-Answer Quiz)</h2>
+<ol>
+<li>
+<p><strong>静电感应中，当一个带负电的棒靠近一个未带电的金属球但不接触时，金属球的电荷如何分布？</strong></p>
+<ul>
+<li><em>参考答案：</em> 靠近电棒的一侧会感应出正电荷（电荷缺失），远离电棒的一侧会聚集多余的电子，显负电。</li>
+</ul>
+</li>
+<li>
+<p><strong>为什么在静电平衡状态下，导体内部的电场强度必须为零？</strong></p>
+<ul>
+<li><em>参考答案：</em> 如果内部场强不为零，导体内的自由电子将在电场力作用下继续定向移动，直到内部场强相互抵消至零，从而达到平衡。</li>
+</ul>
+</li>
+<li>
+<p><strong>根据相对论，如果一个物体的速度接近光速，其质量会发生什么变化？</strong></p>
+<ul>
+<li><em>参考答案：</em> 其相对论质量会趋于无穷大。</li>
+</ul>
+</li>
+<li>
+<p><strong>简述质能方程 $E=mc^2$ 的物理意义。</strong></p>
+<ul>
+<li><em>参考答案：</em> 物质的质量对应一定的能量，质量的增加或损耗必然伴随着能量的变化。</li>
+</ul>
+</li>
+<li>
+<p><strong>在核裂变（如 U-235）过程中，能量是如何释放的？</strong></p>
+<ul>
+<li><em>参考答案：</em> 裂变反应前后存在质量亏损 $\Delta m$，根据 $\Delta E = \Delta m \cdot c^2$，这部分亏损的质量转化为巨大的能量释放出来。</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2>第三部分：深度探索论述题 (Essay Prompts)</h2>
+<ol>
+<li>
+<p><strong>论导体形状对静电平衡电荷分布的影响：</strong>
+    结合尖端放电现象和避雷针的工作原理，分析导体表面电荷密度与曲率半径的关系。探讨在电力系统设计中，如何利用或规避这一物理效应。</p>
+</li>
+<li>
+<p><strong>经典力学与相对论力学的能量观对比：</strong>
+    分析在低速 ($v \ll c$) 条件下，相对论动能公式如何退化为经典力学的 $\frac{1}{2}m_0v^2$。论述相对论中“物质与运动不可分割”的思想如何颠覆了经典力学中质量是常量的概念。</p>
+</li>
+<li>
+<p><strong>电偶极子模型及其在生物物理中的应用：</strong>
+    电偶极子是研究复杂电场的基础模型。以心肌细胞为例（参考心肌电偶极矩），说明微观电荷分布变化如何形成宏观电场，并讨论其在心电图等医疗技术中的理论支持作用。</p>
+</li>
+</ol>
+<hr />
+<h2>第四部分：重要术语表 (Glossary)</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">术语</th>
+<th style="text-align: left;">定义/说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>电荷量子化 (Charge Quantization)</strong></td>
+<td style="text-align: left;">物理事实，即电荷总是基本电荷 $e$ 的整数倍。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>静电感应 (Electrostatic Induction)</strong></td>
+<td style="text-align: left;">导体在外电场中导致内部正负电荷重新分布的现象。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>静电屏蔽 (Electrostatic Shielding)</strong></td>
+<td style="text-align: left;">利用接地空腔导体保护内部（或外部）区域不受外（或内）电场影响的技术。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>电偶极矩 (Electric Dipole Moment)</strong></td>
+<td style="text-align: left;">描述电偶极子特征的矢量 $\vec{p}$，方向由负电荷指向正电荷。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>相对论因子 ($\gamma$)</strong></td>
+<td style="text-align: left;">表达式 $1/\sqrt{1-\beta^2}$，决定了时间膨胀、长度收缩及质量增加的程度。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>静能量 (Rest Energy)</strong></td>
+<td style="text-align: left;">物体在静止参考系中所具有的内能，数值等于 $m_0c^2$。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>质量亏损 (Mass Defect)</strong></td>
+<td style="text-align: left;">在原子核反应中，反应后总质量小于反应前总质量的差值，是释放能量的源泉。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>光子 (Photon)</strong></td>
+<td style="text-align: left;">电磁相互作用的媒介粒子，静止质量为零，始终以光速运行。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>本指南基于提供的讲义及教材整合版编写，重点覆盖期末考试高频考点。</em></p>
+  </main>
+</body>
+</html>
