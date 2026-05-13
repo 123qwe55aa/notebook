@@ -167,6 +167,44 @@ function getExerciseType(item) {
   return 'problem';
 }
 
+function suggestExerciseDifficultyStars(item) {
+  const text = String(item.text || '').trim();
+  const type = getExerciseType(item);
+
+  let stars = 2;
+  if (type === 'variation') stars = 4;
+  else if (type === 'discussion') stars = 3;
+
+  const len = text.length;
+  if (len > 520) stars += 2;
+  else if (len > 280) stars += 1;
+  else if (len > 0 && len < 120) stars -= 1;
+
+  const haystack = `${item.id} ${text}`.toLowerCase();
+  const bumpKeywords = [
+    'prove',
+    'derive',
+    'discussion',
+    'demonstrate',
+    '证明',
+    '推导',
+    '证明其',
+    '讨论',
+    '解释',
+    '分析',
+    '证明：',
+    '推导：'
+  ];
+  if (bumpKeywords.some(keyword => haystack.includes(keyword))) stars += 1;
+
+  const diagramKeywords = ['画图', '作图', '示意图', '绘图', '建模'];
+  if (diagramKeywords.some(keyword => haystack.includes(keyword))) stars += 1;
+
+  stars = Math.max(1, Math.min(5, stars));
+  const glyphs = `${'★'.repeat(stars)}${'☆'.repeat(5 - stars)}`;
+  return { stars, glyphs };
+}
+
 function renderExerciseManagement() {
   const totalStat = document.querySelector('#exerciseTotalStat');
   const sectionStat = document.querySelector('#exerciseSectionStat');
@@ -198,7 +236,12 @@ function renderExercises() {
   const loadMore = document.querySelector('#loadMoreExercises');
   if (!list || !meta || !loadMore) return;
   const visible = exerciseFiltered.slice(0, exerciseVisible);
-  list.innerHTML = visible.map(item => `<article class="exercise-item"><h4>${item.id} · Section ${item.section || '--'} · p.${item.page}</h4><p>${item.text}</p></article>`).join('');
+  list.innerHTML = visible
+    .map(item => {
+      const diff = suggestExerciseDifficultyStars(item);
+      return `<article class="exercise-item"><h4>${item.id} · Section ${item.section || '--'} · p.${item.page} · <span class="exercise-difficulty" aria-label="难度建议 ${diff.stars} 星">${diff.glyphs}</span></h4><p>${item.text}</p></article>`;
+    })
+    .join('');
   meta.textContent = `共 ${exerciseData.length} 题，当前匹配 ${exerciseFiltered.length} 题，已显示 ${visible.length} 题`;
   loadMore.style.display = exerciseVisible >= exerciseFiltered.length ? 'none' : 'inline-flex';
   renderExerciseManagement();
