@@ -1,2 +1,0 @@
-assets/combined_latest/*.mp3 filter=lfs diff=lfs merge=lfs -text
-assets/combined_latest/*.mp4 filter=lfs diff=lfs merge=lfs -text
