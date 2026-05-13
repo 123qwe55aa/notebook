@@ -1,2 +1,2 @@
-assets/pdf_exports/
-assets/pdfs/
+.DS_Store
+assets/.DS_Store
