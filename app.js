@@ -94,6 +94,9 @@ const quiz = chapters.map(ch => ch.multiple[0]);
 quiz.push({ q: '量子力学中通常有直接物理意义的是？', options: ['$\\Psi$', '$|\\Psi|^2$', '$\\nabla\\Psi$', '$1/\\Psi$'], answer: 1, explain: '$|\\Psi|^2$ 表示概率密度，这是考试常见概念点。' });
 
 let activeChapter = 0;
+let exerciseData = [];
+let exerciseFiltered = [];
+let exerciseVisible = 40;
 
 function diagramSvg(type) {
   const common = '<svg class="diagram" viewBox="0 0 520 300" role="img" aria-label="应用示意图"><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="currentColor"/></marker></defs>';
@@ -157,6 +160,43 @@ function updateScore() {
   document.querySelector('#scoreText').textContent = `${correct} / ${quiz.length}`;
 }
 
+function renderExercises() {
+  const list = document.querySelector('#exerciseList');
+  const meta = document.querySelector('#exerciseMeta');
+  const loadMore = document.querySelector('#loadMoreExercises');
+  if (!list || !meta || !loadMore) return;
+  const visible = exerciseFiltered.slice(0, exerciseVisible);
+  list.innerHTML = visible.map(item => `<article class="exercise-item"><h4>${item.id} · Section ${item.section || '--'} · p.${item.page}</h4><p>${item.text}</p></article>`).join('');
+  meta.textContent = `共 ${exerciseData.length} 题，当前匹配 ${exerciseFiltered.length} 题，已显示 ${visible.length} 题`;
+  loadMore.style.display = exerciseVisible >= exerciseFiltered.length ? 'none' : 'inline-flex';
+}
+
+function filterExercises() {
+  const keyword = document.querySelector('#exerciseSearch')?.value.trim().toLowerCase() || '';
+  const section = document.querySelector('#exerciseSection')?.value.trim().toLowerCase() || '';
+  exerciseFiltered = exerciseData.filter(item => {
+    const okKeyword = !keyword || `${item.id} ${item.text}`.toLowerCase().includes(keyword);
+    const okSection = !section || String(item.section || '').toLowerCase().includes(section) || item.id.toLowerCase().startsWith(section);
+    return okKeyword && okSection;
+  });
+  exerciseVisible = 40;
+  renderExercises();
+}
+
+async function initExerciseBank() {
+  const meta = document.querySelector('#exerciseMeta');
+  try {
+    const res = await fetch('./assets/pdfs/exercise_questions_parsed.json');
+    if (!res.ok) throw new Error('load failed');
+    const data = await res.json();
+    exerciseData = Array.isArray(data.questions) ? data.questions : [];
+    exerciseFiltered = exerciseData;
+    renderExercises();
+  } catch (error) {
+    if (meta) meta.textContent = '题库加载失败：请确认 exercise_questions_parsed.json 存在。';
+  }
+}
+
 document.addEventListener('click', event => {
   const tab = event.target.closest('.chapter-tab');
   if (tab) {
@@ -196,8 +236,15 @@ document.addEventListener('click', event => {
 
 document.querySelector('#resetQuiz').addEventListener('click', renderQuiz);
 document.querySelector('#formulaSearch').addEventListener('input', event => renderFormulas(event.target.value));
+document.querySelector('#exerciseSearch')?.addEventListener('input', filterExercises);
+document.querySelector('#exerciseSection')?.addEventListener('input', filterExercises);
+document.querySelector('#loadMoreExercises')?.addEventListener('click', () => {
+  exerciseVisible += 40;
+  renderExercises();
+});
 
 renderTabs();
 renderChapter();
 renderFormulas();
 renderQuiz();
+initExerciseBank();

@@ -64,6 +64,19 @@
       </div>
       <div class="chapter-tabs" id="chapterTabs" role="tablist" aria-label="章节选择"></div>
       <div class="playground" id="chapterPanel"></div>
+      <article class="exercise-bank">
+        <div class="exercise-bank-head">
+          <h3>原习题集题库（自动解析）</h3>
+          <p>从 `大学物理_原习题集_sources.pdf` 自动抽取题号与题干，支持关键词检索。</p>
+        </div>
+        <div class="exercise-tools">
+          <label class="search-box bank-search"><span>检索</span><input id="exerciseSearch" type="search" placeholder="如：electric force / 高斯 / magnetic field" /></label>
+          <label class="search-box bank-search"><span>章节</span><input id="exerciseSection" type="search" placeholder="如：01 / 10 / 21" /></label>
+        </div>
+        <div class="exercise-meta" id="exerciseMeta">题库载入中...</div>
+        <div class="exercise-list" id="exerciseList"></div>
+        <button class="button ghost compact" id="loadMoreExercises" type="button">加载更多</button>
+      </article>
     </section>
 
     <section class="section formula-section" id="formulas" aria-labelledby="formula-title">
