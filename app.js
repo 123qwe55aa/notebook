@@ -97,6 +97,7 @@ let activeChapter = 0;
 let exerciseData = [];
 let exerciseFiltered = [];
 let exerciseVisible = 40;
+let exerciseParser = '--';
 
 function diagramSvg(type) {
   const common = '<svg class="diagram" viewBox="0 0 520 300" role="img" aria-label="应用示意图"><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="currentColor"/></marker></defs>';
@@ -160,6 +161,37 @@ function updateScore() {
   document.querySelector('#scoreText').textContent = `${correct} / ${quiz.length}`;
 }
 
+function getExerciseType(item) {
+  if (item.id.startsWith('VP')) return 'variation';
+  if (item.id.startsWith('Q')) return 'discussion';
+  return 'problem';
+}
+
+function renderExerciseManagement() {
+  const totalStat = document.querySelector('#exerciseTotalStat');
+  const sectionStat = document.querySelector('#exerciseSectionStat');
+  const matchStat = document.querySelector('#exerciseMatchStat');
+  const parserStat = document.querySelector('#exerciseParserStat');
+  const chips = document.querySelector('#exerciseChapterChips');
+  if (!totalStat || !sectionStat || !matchStat || !parserStat || !chips) return;
+
+  const sectionCounts = exerciseData.reduce((counts, item) => {
+    const section = String(item.section || '--').padStart(2, '0');
+    counts[section] = (counts[section] || 0) + 1;
+    return counts;
+  }, {});
+  const activeSection = document.querySelector('#exerciseSection')?.value.trim() || '';
+
+  totalStat.textContent = exerciseData.length;
+  sectionStat.textContent = Object.keys(sectionCounts).length;
+  matchStat.textContent = exerciseFiltered.length;
+  parserStat.textContent = exerciseParser;
+  chips.innerHTML = Object.entries(sectionCounts)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([section, count]) => `<button class="chapter-chip ${activeSection === section ? 'active' : ''}" type="button" data-section="${section}"><span>${section}</span>${count}</button>`)
+    .join('');
+}
+
 function renderExercises() {
   const list = document.querySelector('#exerciseList');
   const meta = document.querySelector('#exerciseMeta');
@@ -169,15 +201,18 @@ function renderExercises() {
   list.innerHTML = visible.map(item => `<article class="exercise-item"><h4>${item.id} · Section ${item.section || '--'} · p.${item.page}</h4><p>${item.text}</p></article>`).join('');
   meta.textContent = `共 ${exerciseData.length} 题，当前匹配 ${exerciseFiltered.length} 题，已显示 ${visible.length} 题`;
   loadMore.style.display = exerciseVisible >= exerciseFiltered.length ? 'none' : 'inline-flex';
+  renderExerciseManagement();
 }
 
 function filterExercises() {
   const keyword = document.querySelector('#exerciseSearch')?.value.trim().toLowerCase() || '';
   const section = document.querySelector('#exerciseSection')?.value.trim().toLowerCase() || '';
+  const type = document.querySelector('#exerciseType')?.value || 'all';
   exerciseFiltered = exerciseData.filter(item => {
     const okKeyword = !keyword || `${item.id} ${item.text}`.toLowerCase().includes(keyword);
     const okSection = !section || String(item.section || '').toLowerCase().includes(section) || item.id.toLowerCase().startsWith(section);
-    return okKeyword && okSection;
+    const okType = type === 'all' || getExerciseType(item) === type;
+    return okKeyword && okSection && okType;
   });
   exerciseVisible = 40;
   renderExercises();
@@ -190,6 +225,7 @@ async function initExerciseBank() {
     if (!res.ok) throw new Error('load failed');
     const data = await res.json();
     exerciseData = Array.isArray(data.questions) ? data.questions : [];
+    exerciseParser = data.parser || '--';
     exerciseFiltered = exerciseData;
     renderExercises();
   } catch (error) {
@@ -233,12 +269,27 @@ document.addEventListener('click', event => {
     if (window.MathJax?.typesetPromise) MathJax.typesetPromise();
     return;
   }
+  const chip = event.target.closest('.chapter-chip');
+  if (chip) {
+    const input = document.querySelector('#exerciseSection');
+    if (input) input.value = input.value === chip.dataset.section ? '' : chip.dataset.section;
+    filterExercises();
+    return;
+  }
+  const resetExercises = event.target.closest('#resetExerciseFilters');
+  if (resetExercises) {
+    document.querySelector('#exerciseSearch').value = '';
+    document.querySelector('#exerciseSection').value = '';
+    document.querySelector('#exerciseType').value = 'all';
+    filterExercises();
+  }
 });
 
 document.querySelector('#resetQuiz').addEventListener('click', renderQuiz);
 document.querySelector('#formulaSearch').addEventListener('input', event => renderFormulas(event.target.value));
 document.querySelector('#exerciseSearch')?.addEventListener('input', filterExercises);
 document.querySelector('#exerciseSection')?.addEventListener('input', filterExercises);
+document.querySelector('#exerciseType')?.addEventListener('change', filterExercises);
 document.querySelector('#loadMoreExercises')?.addEventListener('click', () => {
   exerciseVisible += 40;
   renderExercises();

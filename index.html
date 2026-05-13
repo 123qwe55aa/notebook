@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>大学物理期末复习 Playground</title>
   <meta name="description" content="基于 NotebookLM、xuexitong PDF 与整合资料生成的大学物理期末复习交互网站。" />
-  <link rel="stylesheet" href="styles.css?v=playground3" />
+  <link rel="stylesheet" href="styles.css?v=playground4" />
   <script>
     window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }, svg: { fontCache: 'global' } };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="app.js?v=playground3"></script>
+  <script defer src="app.js?v=playground4"></script>
 </head>
 <body>
   <header class="hero" id="top">
@@ -118,6 +118,23 @@
           <div class="exercise-bank-head">
             <h3>原习题集题库（自动解析）</h3>
             <p>从 `大学物理_原习题集_sources.pdf` 按 PDF 坐标块重新解析，支持关键词和章节检索。</p>
+          </div>
+          <div class="exercise-management" id="exerciseManagement">
+            <div class="exercise-stats" aria-label="题库统计">
+              <p><span>总题数</span><strong id="exerciseTotalStat">--</strong></p>
+              <p><span>章节数</span><strong id="exerciseSectionStat">--</strong></p>
+              <p><span>当前匹配</span><strong id="exerciseMatchStat">--</strong></p>
+              <p><span>解析器</span><strong id="exerciseParserStat">--</strong></p>
+            </div>
+            <div class="exercise-manager-row">
+              <div class="chapter-chip-list" id="exerciseChapterChips" aria-label="章节筛选"></div>
+              <div class="exercise-actions">
+                <label class="select-box"><span>题型</span><select id="exerciseType"><option value="all">全部</option><option value="variation">变式题 VP</option><option value="discussion">讨论题 Q</option><option value="problem">教材题</option></select></label>
+                <button class="button ghost compact" id="resetExerciseFilters" type="button">重置</button>
+                <a class="button ghost compact" href="./assets/pdfs/大学物理_原习题集_sources.pdf">PDF</a>
+                <a class="button ghost compact" href="./assets/pdfs/exercise_questions_parsed.json" download>JSON</a>
+              </div>
+            </div>
           </div>
           <div class="exercise-tools">
             <label class="search-box bank-search"><span>检索</span><input id="exerciseSearch" type="search" placeholder="如：electric force / 高斯 / magnetic field" /></label>
