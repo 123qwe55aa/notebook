@@ -343,3 +343,48 @@ renderChapter();
 renderFormulas();
 renderQuiz();
 initExerciseBank();
+
+function initExamCountdown() {
+  const root = document.querySelector('#examCountdown');
+  if (!root) return;
+  const targetRaw = root.getAttribute('data-target') || '';
+  const targetMs = Date.parse(targetRaw);
+  if (!Number.isFinite(targetMs)) return;
+
+  const daysEl = document.querySelector('#cdDays');
+  const hoursEl = document.querySelector('#cdHours');
+  const minutesEl = document.querySelector('#cdMinutes');
+  const secondsEl = document.querySelector('#cdSeconds');
+  const statusEl = document.querySelector('#cdStatus');
+
+  const pad2 = value => String(value).padStart(2, '0');
+
+  let timer = null;
+  const tick = () => {
+    const diffMs = targetMs - Date.now();
+    if (diffMs <= 0) {
+      if (daysEl) daysEl.textContent = '0';
+      if (hoursEl) hoursEl.textContent = '00';
+      if (minutesEl) minutesEl.textContent = '00';
+      if (secondsEl) secondsEl.textContent = '00';
+      if (statusEl) statusEl.textContent = '已开考：稳住节奏，先拿稳基础题。';
+      if (timer) clearInterval(timer);
+      timer = null;
+      return;
+    }
+    const totalSeconds = Math.floor(diffMs / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    if (daysEl) daysEl.textContent = String(days);
+    if (hoursEl) hoursEl.textContent = pad2(hours);
+    if (minutesEl) minutesEl.textContent = pad2(minutes);
+    if (secondsEl) secondsEl.textContent = pad2(seconds);
+  };
+
+  tick();
+  timer = setInterval(tick, 1000);
+}
+
+initExamCountdown();

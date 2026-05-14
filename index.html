@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>大学物理期末复习 Playground</title>
   <meta name="description" content="基于 NotebookLM、xuexitong PDF 与整合资料生成的大学物理期末复习交互网站。" />
-  <link rel="stylesheet" href="styles.css?v=playground4" />
+  <link rel="stylesheet" href="styles.css?v=playground5" />
   <script>
     window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }, svg: { fontCache: 'global' } };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="app.js?v=playground4"></script>
+  <script defer src="app.js?v=playground5"></script>
 </head>
 <body>
   <header class="hero" id="top">
@@ -25,6 +25,19 @@
         <p class="eyebrow">NotebookLM × 学习通 PDF</p>
         <h1>大学物理期末复习 Playground</h1>
         <p class="lead">不再把笔记和练习塞进图片里。这里把每章拆成可读、可点、可答题的网页模块：看笔记，查公式，做选择/填空，最后用应用图题练建模。</p>
+        <div class="countdown-card" id="examCountdown" data-target="2026-06-07T10:30:00+08:00" aria-label="大物考试倒计时">
+          <div class="countdown-head">
+            <strong>距离大物考试还有</strong>
+            <span class="countdown-sub">2026-06-07 10:30（北京时间）</span>
+          </div>
+          <div class="countdown-grid" aria-live="polite">
+            <div class="countdown-cell"><span class="countdown-num" id="cdDays">--</span><span class="countdown-unit">天</span></div>
+            <div class="countdown-cell"><span class="countdown-num" id="cdHours">--</span><span class="countdown-unit">时</span></div>
+            <div class="countdown-cell"><span class="countdown-num" id="cdMinutes">--</span><span class="countdown-unit">分</span></div>
+            <div class="countdown-cell"><span class="countdown-num" id="cdSeconds">--</span><span class="countdown-unit">秒</span></div>
+          </div>
+          <p class="countdown-status" id="cdStatus">保持节奏：刷完一章就立刻做题。</p>
+        </div>
         <div class="hero-actions">
           <a class="button primary" href="#playground">进入练习场</a>
           <a class="button ghost" href="./assets/combined_latest/大学物理期末复习综合指南.html">NotebookLM 综合指南</a>
