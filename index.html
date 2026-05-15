@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>大学物理期末复习 Playground</title>
   <meta name="description" content="基于 NotebookLM、xuexitong PDF 与整合资料生成的大学物理期末复习交互网站。" />
-  <link rel="stylesheet" href="styles.css?v=playground5" />
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="styles.css?v=playground6" />
   <script>
     window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }, svg: { fontCache: 'global' } };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="app.js?v=playground5"></script>
+  <script defer src="app.js?v=playground6"></script>
 </head>
 <body>
   <header class="hero" id="top">
@@ -124,7 +125,20 @@
             <a href="./assets/combined_latest/物理实在的演变：全景分析.mp4">物理实在的演变 MP4</a>
           </div>
         </article>
-        <article class="resource-card"><h3>原习题集</h3><p>从 sources 原始题页抽取，保留教材和课件的原版排版。</p><a class="button primary small" href="./assets/pdfs/大学物理_原习题集_sources.pdf">打开习题集</a></article>
+        <article class="resource-card original-exercises">
+          <h3>原习题集</h3>
+          <p>从 sources 原始题页抽取，保留教材和课件的原版排版。题号后的标记沿用原教材标准：</p>
+          <dl class="source-difficulty">
+            <div><dt>&bull;</dt><dd>基础题</dd></div>
+            <div><dt>&bull;&bull;</dt><dd>中等题</dd></div>
+            <div><dt>&bull;&bull;&bull;</dt><dd>挑战题</dd></div>
+            <div><dt>CP</dt><dd>综合题，包含前面章节知识</dd></div>
+            <div><dt>CALC</dt><dd>需要微积分</dd></div>
+            <div><dt>DATA</dt><dd>真实数据、证据、实验设计或统计推理</dd></div>
+            <div><dt>BIO</dt><dd>生物科学情境题</dd></div>
+          </dl>
+          <a class="button primary small" href="./assets/pdfs/大学物理_原习题集_sources.pdf">打开习题集</a>
+        </article>
         <article class="resource-card"><h3>整合 PDF</h3><p>静电场、磁场、变化磁场、量子力学等内容的整合版。</p><a class="button ghost small" href="./assets/pdfs/大学物理_静电场_磁场_量子力学_整合版.pdf">打开整合 PDF</a></article>
         <article class="resource-card"><h3>学习通原始资料</h3><p>本地保存的 PDF，以及由原课件转换出的 PDF 版资料。</p><a class="button ghost small" href="./assets/pdf_exports/">打开 PDF 资料文件夹</a></article>
         <article class="resource-card exercise-bank resource-bank-card">

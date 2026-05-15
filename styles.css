@@ -225,6 +225,10 @@ li { margin: 9px 0; line-height: 1.55; }
 .resource-card { padding: 24px; }
 .resource-card h3 { color: var(--navy); font-size: 28px; }
 .resource-card.feature { background: linear-gradient(140deg, #fff, #edf6f3); }
+.source-difficulty { display: grid; gap: 8px; margin: 14px 0 18px; }
+.source-difficulty div { display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 10px; align-items: start; }
+.source-difficulty dt { min-height: 28px; padding: 2px 10px; border-radius: 999px; background: var(--soft); color: var(--navy); border: 1px solid var(--line); font-weight: 900; text-align: center; }
+.source-difficulty dd { margin: 0; color: var(--muted); line-height: 1.55; }
 .resource-bank-card { grid-column: 1 / -1; }
 .link-list { display: grid; gap: 10px; }
 .link-list a { padding: 12px 14px; border-radius: 14px; background: white; border: 1px solid var(--line); text-decoration: none; color: var(--navy); font-weight: 800; }

@@ -18,7 +18,7 @@ const chapters = [
       { prompt: '点电荷场强大小 $E=$', answer: '$\\frac{1}{4\\pi\\epsilon_0}\\frac{|q|}{r^2}$' },
       { prompt: '无限大均匀带电平面场强 $E=$', answer: '$\\sigma/(2\\epsilon_0)$' }
     ],
-    application: { title: '球壳的高斯面', prompt: '半径 $R$ 的均匀带电薄球壳，总电荷 $Q$。分别求 $r<R$ 与 $r>R$ 的电场强度。', answer: '$r<R$ 时 $Q_{enc}=0$，所以 $E=0$；$r>R$ 时等效为中心点电荷，$E=\\frac{1}{4\\pi\\epsilon_0}\\frac{Q}{r^2}$。' }
+    application: { title: '球壳的高斯面', prompt: '半径 $R$ 的均匀带电薄球壳，总电荷 $Q$。分别求 $r\lt R$ 与 $r\gt R$ 的电场强度。', answer: '$r\lt R$ 时 $Q_{enc}=0$，所以 $E=0$；$r\gt R$ 时等效为中心点电荷，$E=\\frac{1}{4\\pi\\epsilon_0}\\frac{Q}{r^2}$。' }
   },
   {
     id: 'potential',
