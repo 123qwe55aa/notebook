@@ -1,0 +1,55 @@
+001. assets/pdf_exports/第10章 稳恒磁场.pdf | page 33 | 【例 题】 例 题 解 （a）正方形电流的每一条直导线边在 点所产生的的磁感应 强度为 P 0 1 2 1 [sin sin ] 4 ＝ I B a µ β β π 0 [sin sin( )] 4 4 4 sin 4 ＝ I R µ π 
+002. assets/pdf_exports/第10章 稳恒磁场.pdf | page 34 | 例 题 0 4 2 ＝ I B R µ π 正 g 整个正方形电流在 点产生的磁感应强度 P 方向垂直于纸面向外 圆电流在圆心处所产生的磁场 0 2 ＝ I B R µ 圆 点的总磁感应强度 P ＝ B B B 正 圆 0 0 2 2 ＝ 
+003. assets/pdf_exports/第10章 稳恒磁场.pdf | page 35 | 例 题 （b）水平半无限载流长直导线在 点产生的磁感应强度为 P 0 1 2 1 [sin sin ] 4 µ β β π ＝ I B a o 0 [sin0 sin( )] 4 2 µ π π ＝ I a 0 4 ＝ I a µ π 方向
+004. assets/pdf_exports/第10章 稳恒磁场.pdf | page 36 | 例 题 （b）载流斜直导线在 点产生 的磁感应强度为 P 0 2 2 1 [sin sin ] 4 I B a π ＝µ β β 1 0 [sin sin( )] 4 cos 2 µ θ θ π π ＝ I a 0 [1+sin ] 4 c
+005. assets/pdf_exports/第10章 稳恒磁场.pdf | page 37 | 补充例题 例 题 长直电流与圆电流的组合——求下各图中 点 的 。 O B 0 8 µ ＝ I B R 0 4 µ ＝ I B R 0 0 4 4 µ µ + π ＝ I I B R R 0 0 3 8 4 µ µ + π ＝ I I B 
+006. assets/pdf_exports/第10章 稳恒磁场.pdf | page 42 | P x ω R O q 【例 题】 例 题 均匀带电薄圆盘绕轴线转动产生的 磁场可以看成由半径不同的一系列同心 载流圆环产生的磁场。 d 2 d σ π ＝ q r r 半径为 的薄圆盘均匀带电，总电量为 。令此盘绕通过盘心且垂 直于盘面的
+007. assets/pdf_exports/第10章 稳恒磁场.pdf | page 43 | 【例 题】 例 题 圆环电流 d d T q I＝ P x ω R O q dr r dB u 2 d d 2 q q r r R π π ＝ω ω 电流 在 点处产生的磁场： P dI 2 0 2 2 3/2 d d 2( ) ＝ r I
+008. assets/pdf_exports/第10章 稳恒磁场.pdf | page 44 | 例 题 3 0 2 2 2 3/2 0 d d 2 ( ) µ ω π + ∫ ∫ ＝ R q r r B B R r x 点处总的磁感应强度为： P 2 2 0 2 2 2 2 2 2 ＝ q R x x R R x µ ω ⎛ ⎞ + 
+009. assets/pdf_exports/第10章 稳恒磁场.pdf | page 56 | 【例 题】 例 题 如图所示，一无限大导体薄平板上流有电流，面电流密度（通过与 电流方向垂直的单位长度的电流）到处均匀，大小为 ，求其磁场分 布。 i 解 无限大平面电流可 看成是由无限多根平行排列的 长直电流 组成。 dI 和 相叠加后的
+010. assets/pdf_exports/第10章 稳恒磁场.pdf | page 57 | 例 题 同理，电流平面的下半部空间 的方向为平行电流平面向右。 B u 0 1 2 ＝ B i µ B u a b c d l i B u 安培环路定理 作矩形回路 ＝ abcda ab cd l , B u 由于电流平面无限大，故与电流平
+011. assets/pdf_exports/第10章 稳恒磁场.pdf | page 63 | 【例 题】 例 题 载有电流 的长直导线旁边有一与长直导线垂直的共面导线，载 有电流 。其长度为 ，近端与长直导线的距离为 ，如图所示。求 作用在 上的力。 l 2I 1I d 1I l 解 在 上取 ，电流 在此处产生的磁场 l dl r
+012. assets/pdf_exports/第10章 稳恒磁场.pdf | page 64 | 补充例题 例 题 设有一段半径为 的半圆形载流导线放在匀强磁场中，导线平面与磁场 垂直，导线中电流为 ，如图示，求该导线所受的安培力。 I R d d f BI l ＝ d d cos( ) d cos xf f f − ＝ π θ θ d
+013. assets/pdf_exports/第10章 稳恒磁场.pdf | page 71 | 【例 题】 例 题 半径为 的圆盘，带正电，其电荷面密度 是常数，圆盘 放在一均匀磁场 中，其法线方向与 垂直，如图所示。当圆盘以角 速度 绕过圆心 点，且垂直于圆盘平面的轴作逆时针旋转时，求圆 盘的磁矩和磁力矩的大小与方向。 ω B u 
+014. assets/pdf_exports/第10章 稳恒磁场.pdf | page 72 | 例 题 环的磁矩 方向垂直于页面向外 2 m d d P r I π ＝ 5 4 m 0 d 5 R k R P k r r π π ∫ ＝ ω ω 圆盘的磁力矩 圆盘的磁矩 4 0 d d R M M B k r r π ∫ ∫ ＝ ω 
+015. assets/pdf_exports/第10章 稳恒磁场.pdf | page 76 | 【例 题】 例 题 解 （1）线圈的磁矩为 （1）求此时线圈所受的力矩大小和方向；（2）求在这力矩作用 下，当线圈平面转到与磁场 垂直的位置时，磁力矩所做的功。 B u 2 m 2 IS I R π P n n ＝ u r r m ⊥ P 
+016. assets/pdf_exports/第10章 稳恒磁场.pdf | page 77 | 例 题 2 2 1 1 0 2 2 ＝I B R IB R ⎛ ⎞ π π ⎜ ⎟ ⎝ ⎠ 磁力矩做的功： m m2 m1 ( ) ＝ W I I Φ Φ Φ Δ R I ! B
+017. assets/pdf_exports/第10章 稳恒磁场.pdf | page 84 | 【例 题】 例 题 质谱仪：测定离子荷质 比，分离和检测不同同位 素的仪器。
+018. assets/pdf_exports/第10章 稳恒磁场.pdf | page 85 | 【例 题】 例 题 速度选择器 ʹ ! B ! v q + 1P 2P ! E + − 质谱仪原理图 1P 2P + − 2 S 1S 0 S ! B 离子源 加速电场 速度选择器 偏转磁场 冲洗后的底片 1 2 3
+019. assets/pdf_exports/第10章 稳恒磁场.pdf | page 86 | 【例 题】 例 题 1P 2P + − 0 S ! B 速度选择器 偏转磁场 冲洗后的底片 1 2 3 从 射出的离子（带电量为q）垂直射入一磁感应强度为 的均匀磁 场中。离子进入这一磁场后因受洛伦兹力而作匀速圆周运动。不同质量的 离子打在
+020. assets/pdf_exports/第10章 稳恒磁场.pdf | page 87 | 例 题 解 (离子）所受的电场力 ： q e＝ f qE ＝ qE q Bʹ v 即 E Bʹ ＝ v 离子只有沿直线运动，才可能从 穿出。 0 S 故有： 所受的磁场力： q m＝ f q Bʹ v m f u 速度选择器 ʹ ! B !
+021. assets/pdf_exports/第10章 稳恒磁场.pdf | page 88 | 例 题 离子自 进入匀强磁场 后，作匀速圆周运动，设半径为 。 0 S B u R 2 ＝ q B m R v v 质量不同的离子对应不同的圆周运动半径 ʹ ＝qBB m R E 2 ＝d R 1 1 2 2 3 3 2 2 2 ＝ ＝ ＝
+022. assets/pdf_exports/第10章 稳恒磁场.pdf | page 92 | 有一宽为0.50 cm ，厚为0.10 mm的薄片银导线，当片中通以2 A电 流，且有0.8 T的磁场垂直薄片时，试求产生的霍耳电势差为多大? （银密 度为10.5 g/cm3）。 【例 题】 例 题 10.5 6.0 6 ( m ) 0.
+023. assets/pdf_exports/第10章 稳恒磁场.pdf | page 93 | 例 题 H 0.80 6 1.6 0.10 U 28 19 3 2× ×10 × ×10 × ×10 － ＝ 对于良导体，霍耳电势差非常微小。 V － ＝ 6 1.7×10 H 1 ＝ IB U nq d
+024. assets/pdf_exports/第10章 稳恒磁场.pdf | page 106 | 【例 题】 例 题 一根“无限长”的直圆柱形铜导线，外包一层相对磁导率为 的圆 筒形磁介质，导线半径为 ，磁介质的外半径为 ，导线内有电流 通过，电流均匀分布在横截面上，如图所示。 I rµ 1 R 2 R 求： （1）介质内外的磁场强度分
+025. assets/pdf_exports/第10章 稳恒磁场.pdf | page 107 | 例 题 解 （1）求 关系 H r − d ＝ i L I ∑ ∫H l u u r r g Ñ 1 R 2 R ! I r !! H L 安培环路定理： 由于电流分布的轴对称性，因而磁场分布也具有轴对称性 d 2 ＝ L rH π ∫H 
+026. assets/pdf_exports/第10章 稳恒磁场.pdf | page 108 | 例 题 1 2 ＝ i H I r π ∑ 1 1 2 1 ( ) 2 I H r r R R π ＝ 2 1 2 ( ) 2 I H R r R r π ≤ ＝ 3 2 ( ) 2 I H r R r π ＝ 曲线 H r − H O 1
+027. assets/pdf_exports/第10章 稳恒磁场.pdf | page 109 | 例 题 （2）求 关系 B r − 0 r ＝µ µ B H u r u u 0 1 0 1 1 2 1 ( ) 2 I B H r r R R π ＝ µ µ 2 2 0 r 1 2 ( ) 2 I B H R r R r π ≤ ＝µ 
+028. assets/pdf_exports/第10章 稳恒磁场.pdf | page 116 | 在测定铁磁质磁化特性的实验中，设所用的环形螺线管共有1 000匝， 平均半径为15.0 cm，当通有2.00 A电流时，测得环内磁感应强度 为1.00 T。 【例 题】 例 题 B M 求： （1）螺线管铁芯内的磁场强度 和磁化强度 ； H
+029. assets/pdf_exports/第10章 稳恒磁场.pdf | page 117 | 例 题 解 （1）磁场强度 ＝ H nI 1 000 m 2 － ＝ 2 ×2.00Α / π×15.0×10 3 m ＝2.12×10 Α / 磁化强度 0 ＝B M H µ 3 1 .00 4 7 2.12×10 π×10－ ＝ 5 m
+030. assets/pdf_exports/第10章 稳恒磁场.pdf | page 118 | 例 题 （2）铁磁质中磁场在上述 值时的磁导率 H r 0 ＝µ µ µ 4 － － ＝ 4 7 4.71×10 375 π×10 相对磁导率 ＝B H µ 1 .00 2.12 3 ×10 ＝ m － ＝ 4 4.71×10 Η / （3
+031. assets/pdf_exports/第11章 变化的电磁场.pdf | page 13 | 【例 题】 例 题 线圈中的感应电动势 如图所示，空间分布着均匀磁场 。一旋转半径为 、 长为 的矩形导体线圈以匀角速度 绕与磁场垂直的轴 旋转， 时，线圈的法向 与 之间夹角 。求线圈中的感应电动势。 ω l OOʹ r B u 0sin
+032. assets/pdf_exports/第11章 变化的电磁场.pdf | page 14 | 例 题 线圈中的感应电动势： 则 m cos ＝ BS t Φ ω B S u r u r g 0 cos B rl t ω ＝ m 0 d sin d B rl t t Φ ε ω ω ＝ 0 B B ＝ 如果空间的磁场是稳恒磁场： Oʹ
+033. assets/pdf_exports/第11章 变化的电磁场.pdf | page 15 | 【例 题】 例 题 一根无限长的直导线载有交流电流 。旁边有一共面矩 形线圈 ，如图所示。 与直导线平行且相距 为 。求线圈中的感应电动势。 d abcd 0sin ＝ i I t ω 1 2 ＝ ab l bc l ab , 解 取矩形线
+034. assets/pdf_exports/第11章 变化的电磁场.pdf | page 16 | 【例 题】 例 题 一根无限长的直导线载有交流电流 。旁边有一共面矩 形线圈 ，如图所示。 与直导线平行且相距 为 。求线圈中的感应电动势。 d abcd 0sin ＝ i I t ω 1 2 ＝ ab l bc l ab , 解 取矩形线
+035. assets/pdf_exports/第11章 变化的电磁场.pdf | page 20 | 【例 题】 例 题 如图所示，长度为 的铜棒在磁感应强度为 的均匀磁场中以角速度 绕过 点的轴沿逆时针方向转动。求：（1）棒中感应电动势的大小和方 向，（2）直径为 的半圆弧导体 以同样的角速度 绕 轴转动 时，导体 上的感应电动势。 L 
+036. assets/pdf_exports/第11章 变化的电磁场.pdf | page 21 | 例 题 解 （1）方法一： 用 求解。 ( ) d ＝ A O ε × ∫ B l r u r g r v 在 上取 ，其速度 为： OA r v dl r ! B O C d ! l A ω r v l ( ) d ＝ A OA O ε 
+037. assets/pdf_exports/第11章 变化的电磁场.pdf | page 22 | 例 题 方法二：用法拉第电磁感应定律求解。 2 m 1 d d d 2 B S BL ＝ Φ θ 设 在 时间内转了 角 dθ dt OA 法拉第电磁感应定律： m d d OAAO t ＝ Φ ε 2 1 d d 2 S L ＝ θ OA
+038. assets/pdf_exports/第11章 变化的电磁场.pdf | page 23 | 例 题 OACO OA ACO + ＝ ε ε ε 2 1 2 ACO OA BL ＝ ε ε ω 0 OACO ＝ ε ! B O C A ω 此闭合导体回路在磁场中旋转时，穿过回路的磁通量保持不变。 OCA （2）求 的感应电动势： 正
+039. assets/pdf_exports/第11章 变化的电磁场.pdf | page 24 | 【例 题】 例 题 无限长直导线中通有电流 ，另一长 的导体棒 以速 率 平行于长直导线做匀速运动。棒与长直导线共面且正交，如 图所示。 10A ＝ I 0.20m ＝ l 2.0m / s ＝ v ab 棒的 端距长直导线的距离 ，求棒中
+040. assets/pdf_exports/第11章 变化的电磁场.pdf | page 28 | 【例 题】 例 题 半径为 的圆柱形空间内分布有沿圆柱轴线方向的均匀磁场，磁场 方向垂直页面向里，其变化率为 。 R d d B t 试求： （1）圆柱形空间内、外涡旋电场 的分布； r E u a b L d 0 d ＞ B t L ab
+041. assets/pdf_exports/第11章 变化的电磁场.pdf | page 29 | 例 题 解 （1）求空间中涡旋电场的分布 过圆柱体内任一点 在截面上作半径为 的圆形回路 ，并设 的回转方向与 的方向构 成右手螺旋关系，即设图中沿 的顺时针切线方 向为 的正方向。 B u l P r l r E u l 根据磁场分布的轴
+042. assets/pdf_exports/第11章 变化的电磁场.pdf | page 30 | 例 题 r d 2 d ＝ r B t Ε 时 ， d 0 d ＞ B t (沿逆时针方向) r 0 ＜ Ε 时 ， d 0 d ＜ B t (沿顺时针方向) r 0 ＞ Ε P l r ! E r O R r d d d d l S B 
+043. assets/pdf_exports/第11章 变化的电磁场.pdf | page 31 | 例 题 2 r d 2 d ＝ R B r t Ε P l r ! E r O R r d 2 d B r S t π ＝ Ε r R 当 ， ＞ 2 S R π ＝ R r ο r Ε d 2 d R B t
+044. assets/pdf_exports/第11章 变化的电磁场.pdf | page 32 | 例 题 r d ＝ b ab a ε ∫E l g u r 0 d d 2 d ＝ L h B l t ∫ d 2 d ＝Lh B t a b （ ⽅向 ） 方法一：用电动势定义求解 （2）求 ab ε 时 ， d 0 d ＞ B t r 
+045. assets/pdf_exports/第11章 变化的电磁场.pdf | page 33 | 例 题 方法二：用法拉第电磁感应定律求解 作闭合回路OabO m d d OabO t ＝ Φ ε d d 2 ＝B hL t r d 0 ＝ R Oa bO ε ε ∫0 E r u r r Q g ab OabO Oa bO ＝ ε ε
+046. assets/pdf_exports/第11章 变化的电磁场.pdf | page 49 | 一矩形线圈长为 ，宽为 ，由100匝表面绝缘的导线组成，放在一根 很长的导线旁边并与之共面。求图（a）、（b）两种情况下线圈与长直导 线之间的互感。 【例 题】 例 题 a b b b a I (a) I a (b) 2 b
+047. assets/pdf_exports/第11章 变化的电磁场.pdf | page 50 | 例 题 0 2 ＝ I B x µ π 解 （a）长导线产生的磁感应强度： b b a x I dx (a) 通过线圈的磁通链数 线圈与长导线的互感 2 0 m d 2 b b I N a x x π ∫ µ Ψ ＝ 0 2 ln 2 ＝N
+048. assets/pdf_exports/第11章 变化的电磁场.pdf | page 51 | （b）直导线两边的磁感应强度方向相反且以导线为轴对称分布。 例 题 I a (b) 2 b 通过矩形线圈的磁通链 m Ψ ＝ 0 m M I Ψ ＝ 0 线圈与长导线的互感
+049. assets/pdf_exports/第11章 变化的电磁场.pdf | page 52 | 【例 题】 例 题 如图所示， 表示一长螺线管（称为原线圈），长为 ，截面积为 ， 共有 匝， 表示另一长螺线管（称为副线圈），长度和截面积与 相同，并与 共轴，共有 匝，螺线管内磁介质的磁导率为 。 2 C 1 N l 2 N 1 C S
+050. assets/pdf_exports/第11章 变化的电磁场.pdf | page 53 | 例 题 解 （1）设原线圈中通有电流 1I 1 1 N I B l ＝µ 1 通过副线圈的磁通链数 1 2 1 21 2 21 2 N N I N N B S S l ＝ Ψ Φ µ 1 l 2 C 1 C 1 N 2 N 二线圈的互感系数
+051. assets/pdf_exports/第11章 变化的电磁场.pdf | page 54 | 例 题 （2）原线圈中通有电流 时 1I 原线圈的自感系数 2 11 1 1 1 ＝ N S L I l Ψ µ （在无磁漏的情况下） 同理，副线圈的自感系数 2 2 2＝ N S L l µ 1 2 M L L ＝ 在有磁漏的情况下有 1
+052. assets/pdf_exports/第11章 变化的电磁场.pdf | page 60 | 【例 题】 例 题 同轴电缆 求无限长圆柱形同轴电缆长为 的一段中磁场的能量及自感。设 内、外导体的截面半径分别为 ，电缆通有电流 ，两 导体之间磁介质的磁导率假设为 。 I 0 µ 1 2 2 1 ＞ R R R R （ ） 、 l 0 
+053. assets/pdf_exports/第11章 变化的电磁场.pdf | page 73 | 【例 题】 例 题 解 据位移电流的定义知 如图所示，半径 的两块圆板构成平板电容器，以匀速充电使 电容器两板间电场的变化率为 ，求电容器两板间的 位移电流，并计算电容器内离两板中心连线 处的磁感应强度 和 处的磁感应强度 。 13 d 1
+054. assets/pdf_exports/第11章 变化的电磁场.pdf | page 74 | 例 题 d d ＝ i l S I t ∂ ∂ ∑ ∫ ∫ D H l S g u r u u r r u g Ñ d d ＝ l S t ∂ ∂ ∫ ∫ D H l S u r u u r r g u g Ñ 2 0 d 2 d ＝ E 
+055. assets/pdf_exports/第11章 变化的电磁场.pdf | page 75 | 补充例题 例 题 解 1 2 A. d d L L ∫ ∫ H l H l u u r r u u g r g Ñ Ñ 1 2 C. d d ＜ L L ∫ ∫ H l H l u u r r u u g r g Ñ Ñ 1 2 B. d 
