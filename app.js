@@ -167,44 +167,44 @@ function getExerciseType(item) {
   return 'problem';
 }
 
-function suggestExerciseDifficultyStars(item) {
-  const text = String(item.text || '').trim();
-  const type = getExerciseType(item);
-
-  let stars = 2;
-  if (type === 'variation') stars = 4;
-  else if (type === 'discussion') stars = 3;
-
-  const len = text.length;
-  if (len > 520) stars += 2;
-  else if (len > 280) stars += 1;
-  else if (len > 0 && len < 120) stars -= 1;
-
-  const haystack = `${item.id} ${text}`.toLowerCase();
-  const bumpKeywords = [
-    'prove',
-    'derive',
-    'discussion',
-    'demonstrate',
-    '证明',
-    '推导',
-    '证明其',
-    '讨论',
-    '解释',
-    '分析',
-    '证明：',
-    '推导：'
-  ];
-  if (bumpKeywords.some(keyword => haystack.includes(keyword))) stars += 1;
-
-  const diagramKeywords = ['画图', '作图', '示意图', '绘图', '建模'];
-  if (diagramKeywords.some(keyword => haystack.includes(keyword))) stars += 1;
-
-  stars = Math.max(1, Math.min(5, stars));
-  const glyphs = `${'★'.repeat(stars)}${'☆'.repeat(5 - stars)}`;
-  return { stars, glyphs };
+function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, char => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  })[char]);
 }
 
+function renderPill(value, className, fallback = '未标注') {
+  const text = value === null || value === undefined || value === '' ? fallback : value;
+  return `<span class="${className}">${escapeHtml(text)}</span>`;
+}
+
+function normalizeAssets(assets) {
+  if (!assets) return [];
+  if (Array.isArray(assets)) return assets.flatMap(asset => normalizeAssets(asset));
+  if (typeof assets === 'string') return [{ href: assets, label: 'crop' }];
+  if (typeof assets === 'object') {
+    return [assets.crop, assets.crop_url, assets.path, assets.href, ...(Array.isArray(assets.crops) ? assets.crops : [])]
+      .filter(Boolean)
+      .flatMap(asset => normalizeAssets(asset));
+  }
+  return [];
+}
+
+function renderExerciseAssets(item) {
+  const assets = normalizeAssets(item.assets).slice(0, 2);
+  if (!assets.length) return '';
+  return `<div class="exercise-assets">${assets.map((asset, index) => {
+    const href = escapeHtml(asset.href);
+    const label = escapeHtml(asset.label || `crop ${index + 1}`);
+    const isImage = /\.(?:png|jpe?g|webp|gif)$/i.test(asset.href);
+    if (!isImage) return `<a class="crop-link" href="${href}" target="_blank" rel="noreferrer">${label}</a>`;
+    return `<a class="crop-preview" href="${href}" target="_blank" rel="noreferrer"><img src="${href}" alt="${escapeHtml(item.id)} crop ${index + 1}" loading="lazy" /></a>`;
+  }).join('')}</div>`;
+}
 function renderExerciseManagement() {
   const totalStat = document.querySelector('#exerciseTotalStat');
   const sectionStat = document.querySelector('#exerciseSectionStat');
@@ -238,15 +238,25 @@ function renderExercises() {
   const visible = exerciseFiltered.slice(0, exerciseVisible);
   list.innerHTML = visible
     .map(item => {
-      const diff = suggestExerciseDifficultyStars(item);
-      return `<article class="exercise-item"><h4>${item.id} · Section ${item.section || '--'} · p.${item.page} · <span class="exercise-difficulty" aria-label="难度建议 ${diff.stars} 星">${diff.glyphs}</span></h4><p>${item.text}</p></article>`;
+      const tags = (Array.isArray(item.tags) ? item.tags : []).map(tag => renderPill(tag, 'exercise-tag')).join('');
+      const figures = (Array.isArray(item.figure_refs) ? item.figure_refs : []).map(ref => renderPill(ref, 'exercise-figure')).join('');
+      const diff = renderPill(item.difficulty, 'exercise-difficulty');
+      return `<article class="exercise-item">
+        <h4>${escapeHtml(item.id)} · Section ${escapeHtml(item.section || '--')} · p.${escapeHtml(item.page ?? item.sourcePage ?? '--')}</h4>
+        <dl class="exercise-fields">
+          <div><dt>难度</dt><dd>${diff}</dd></div>
+          <div><dt>标签</dt><dd>${tags || renderPill('', 'exercise-tag')}</dd></div>
+          <div><dt>图表</dt><dd>${figures || renderPill('', 'exercise-figure')}</dd></div>
+        </dl>
+        <p>${escapeHtml(item.text)}</p>
+        ${renderExerciseAssets(item)}
+      </article>`;
     })
     .join('');
   meta.textContent = `共 ${exerciseData.length} 题，当前匹配 ${exerciseFiltered.length} 题，已显示 ${visible.length} 题`;
   loadMore.style.display = exerciseVisible >= exerciseFiltered.length ? 'none' : 'inline-flex';
   renderExerciseManagement();
 }
-
 function filterExercises() {
   const keyword = document.querySelector('#exerciseSearch')?.value.trim().toLowerCase() || '';
   const section = document.querySelector('#exerciseSection')?.value.trim().toLowerCase() || '';
@@ -267,8 +277,8 @@ async function initExerciseBank() {
     const res = await fetch('./assets/pdfs/exercise_questions_parsed.json');
     if (!res.ok) throw new Error('load failed');
     const data = await res.json();
-    exerciseData = Array.isArray(data.questions) ? data.questions : [];
-    exerciseParser = data.parser || '--';
+    exerciseData = Array.isArray(data?.questions) ? data.questions : (Array.isArray(data) ? data : []);
+    exerciseParser = data?.parser || '--';
     exerciseFiltered = exerciseData;
     renderExercises();
   } catch (error) {
