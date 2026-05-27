@@ -1,0 +1,177 @@
+{
+  "name": "General Physics Concepts",
+  "children": [
+    {
+      "name": "Relativistic Mechanics",
+      "children": [
+        {
+          "name": "Relativistic Mass",
+          "children": [
+            {
+              "name": "Rest Mass m0"
+            },
+            {
+              "name": "Mass-Velocity Relationship"
+            }
+          ]
+        },
+        {
+          "name": "Relativistic Momentum",
+          "children": [
+            {
+              "name": "Lorentz Transformation"
+            },
+            {
+              "name": "p = γm0v"
+            }
+          ]
+        },
+        {
+          "name": "Relativistic Energy",
+          "children": [
+            {
+              "name": "Kinetic Energy Ek"
+            },
+            {
+              "name": "Rest Energy E0 = m0c²"
+            },
+            {
+              "name": "Total Energy E = mc²"
+            },
+            {
+              "name": "Mass-Energy Relation"
+            }
+          ]
+        },
+        {
+          "name": "Applications",
+          "children": [
+            {
+              "name": "Nuclear Fission"
+            },
+            {
+              "name": "Nuclear Fusion"
+            },
+            {
+              "name": "Photons (m0=0)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Electrostatics",
+      "children": [
+        {
+          "name": "Electric Charge",
+          "children": [
+            {
+              "name": "Quantization (q = ±ne)"
+            },
+            {
+              "name": "Conservation Principle"
+            },
+            {
+              "name": "Types: Positive & Negative"
+            }
+          ]
+        },
+        {
+          "name": "Coulomb's Law",
+          "children": [
+            {
+              "name": "Point Charges"
+            },
+            {
+              "name": "Inverse Square Law"
+            },
+            {
+              "name": "Electrostatic Force F"
+            }
+          ]
+        },
+        {
+          "name": "Electric Field",
+          "children": [
+            {
+              "name": "Field Intensity E = F/q0"
+            },
+            {
+              "name": "Superposition Principle"
+            },
+            {
+              "name": "Electric Field Lines"
+            },
+            {
+              "name": "Electric Dipoles"
+            },
+            {
+              "name": "Electric Flux"
+            }
+          ]
+        },
+        {
+          "name": "Materials",
+          "children": [
+            {
+              "name": "Conductors"
+            },
+            {
+              "name": "Insulators"
+            },
+            {
+              "name": "Semiconductors"
+            }
+          ]
+        },
+        {
+          "name": "Gauss's Law",
+          "children": [
+            {
+              "name": "Closed Surfaces"
+            },
+            {
+              "name": "Enclosed Charge"
+            },
+            {
+              "name": "Symmetry Applications"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Conductors in Static Fields",
+      "children": [
+        {
+          "name": "Electrostatic Equilibrium",
+          "children": [
+            {
+              "name": "Internal E = 0"
+            },
+            {
+              "name": "Surface Charge Distribution"
+            },
+            {
+              "name": "Equipotential Bodies"
+            }
+          ]
+        },
+        {
+          "name": "Induction & Shielding",
+          "children": [
+            {
+              "name": "Induced Charges"
+            },
+            {
+              "name": "Electrostatic Shielding"
+            },
+            {
+              "name": "Sharp Point Discharge"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
