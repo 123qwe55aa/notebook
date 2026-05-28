@@ -987,8 +987,8 @@ li {
   border-bottom-color: var(--accent, #007370);
 }
 
-.source-panel { display: none; }
-.source-panel.active { display: block; }
+.source-panel[hidden] { display: none; }
+.source-panel:not([hidden]) { display: block; }
 
 .source-desc {
   color: var(--muted, #8a8278);
