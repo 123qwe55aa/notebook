@@ -1,0 +1,221 @@
+{
+  "title": "Physics Flashcards",
+  "cards": [
+    {
+      "front": "In special relativity, how does the relativistic mass $m$ relate to the rest mass $m_0$ and velocity $v$?",
+      "back": "$m = \\frac{m_0}{\\sqrt{1 - \\beta^2}}$, where $\\beta = \\frac{v}{c}$."
+    },
+    {
+      "front": "The relativistic mass formula $m(v)$ indicates that mass is relative and dependent on the _____ of the object.",
+      "back": "velocity"
+    },
+    {
+      "front": "What is the relativistic expression for the linear momentum $\\vec{p}$ of a particle with rest mass $m_0$?",
+      "back": "$\\vec{p} = \\frac{m_0 \\vec{v}}{\\sqrt{1 - \\beta^2}} = m \\vec{v}$"
+    },
+    {
+      "front": "In the limit where $v \\ll c$, the relativistic momentum $\\vec{p} = m \\vec{v}$ reduces to the classical form _____.",
+      "back": "$\\vec{p} = m_0 \\vec{v}$"
+    },
+    {
+      "front": "How is force $\\vec{F}$ defined in relativistic mechanics using momentum $\\vec{p}$?",
+      "back": "$\\vec{F} = \\frac{d\\vec{p}}{dt} = \\frac{d(m\\vec{v})}{dt}$"
+    },
+    {
+      "front": "Under what condition is the total relativistic momentum $\\sum_{i} \\vec{p}_i$ of a system conserved?",
+      "back": "When the sum of external forces $\\sum_{i} \\vec{F}_i$ acting on the system is zero."
+    },
+    {
+      "front": "What is the formula for the relativistic kinetic energy $E_k$ of an object in terms of its relativistic mass $m$ and rest mass $m_0$?",
+      "back": "$E_k = mc^2 - m_0 c^2$"
+    },
+    {
+      "front": "According to the work-energy theorem in relativity, $E_k$ can be expressed as $m_0 c^2 (\\gamma - 1)$, where $\\gamma$ is defined as _____.",
+      "back": "$\\gamma = \\frac{1}{\\sqrt{1 - \\beta^2}}$"
+    },
+    {
+      "front": "What does the term $E_0 = m_0 c^2$ represent in the context of special relativity?",
+      "back": "The rest energy of an object."
+    },
+    {
+      "front": "The relativistic total energy $E$ is the sum of kinetic energy $E_k$ and _____.",
+      "back": "rest energy $m_0 c^2$"
+    },
+    {
+      "front": "State Einstein's mass-energy relation for the total energy $E$ of a particle.",
+      "back": "$E = mc^2$"
+    },
+    {
+      "front": "What equation relates total energy $E$, rest energy $E_0$, and momentum $p$?",
+      "back": "$E^2 = E_0^2 + p^2 c^2$"
+    },
+    {
+      "front": "In the energy-momentum triangle, what represents the hypotenuse?",
+      "back": "The total energy $E$."
+    },
+    {
+      "front": "Why must a photon have a rest mass $m_0 = 0$?",
+      "back": "Because it travels at the speed of light $c$, which would make the denominator in the mass formula zero unless $m_0$ is zero."
+    },
+    {
+      "front": "What is the formula for the momentum $p$ of a photon in terms of its energy $E$ and the speed of light $c$?",
+      "back": "$p = \\frac{E}{c}$"
+    },
+    {
+      "front": "Formula: Einstein's mass-energy equivalence during mass defect $\\Delta m$.",
+      "back": "$\\Delta E = (\\Delta m)c^2$"
+    },
+    {
+      "front": "What is the physical significance of the mass-energy relation?",
+      "back": "It indicates that a certain amount of mass corresponds to a certain amount of energy."
+    },
+    {
+      "front": "The property of charge _____ means that the charge $q$ of any object is always an integer multiple of the elementary charge $e$.",
+      "back": "quantization"
+    },
+    {
+      "front": "What is the numerical value of the elementary charge $e$ in SI units?",
+      "back": "$e = 1.602 \\times 10^{-19}$ C"
+    },
+    {
+      "front": "State the Law of Conservation of Charge.",
+      "back": "The algebraic sum of the electric charges in any closed system remains constant."
+    },
+    {
+      "front": "Formula: Coulomb's Law for the force $F$ between two point charges $q_1$ and $q_2$.",
+      "back": "$F = \\frac{1}{4\\pi\\epsilon_0} \\frac{q_1 q_2}{r^2}$"
+    },
+    {
+      "front": "What is the approximate value of the Coulomb constant $k = \\frac{1}{4\\pi\\epsilon_0}$?",
+      "back": "$9 \\times 10^9$ $N \\cdot m^2 / C^2$"
+    },
+    {
+      "front": "How is the electric field intensity $\\vec{E}$ defined at a point in space using a test charge $q_0$?",
+      "back": "$\\vec{E} = \\frac{\\vec{F}}{q_0}$"
+    },
+    {
+      "front": "What are the two necessary characteristics for an ideal test charge $q_0$ used to measure an electric field?",
+      "back": "The charge magnitude and the physical volume must both be sufficiently small."
+    },
+    {
+      "front": "What is the formula for the electric field $\\vec{E}$ produced by a point charge $Q$ at a distance $r$?",
+      "back": "$E = \\frac{1}{4\\pi\\epsilon_0} \\frac{Q}{r^2}$"
+    },
+    {
+      "front": "The principle of _____ allows for the calculation of the total electric field from a system of discrete charges by summing their individual field vectors.",
+      "back": "superposition"
+    },
+    {
+      "front": "Define the volume charge density $\\rho$ for a continuous charge distribution.",
+      "back": "$\\rho = \\frac{dq}{dV}$"
+    },
+    {
+      "front": "Define the surface charge density $\\sigma$ for a continuous charge distribution.",
+      "back": "$\\sigma = \\frac{dq}{dS}$"
+    },
+    {
+      "front": "Define the linear charge density $\\lambda$ for a continuous charge distribution.",
+      "back": "$\\lambda = \\frac{dq}{dl}$"
+    },
+    {
+      "front": "What is the electric dipole moment vector $\\vec{p}$ for a pair of charges $+q$ and $-q$ separated by a displacement $\\vec{r}_0$?",
+      "back": "$\\vec{p} = q\\vec{r}_0$"
+    },
+    {
+      "front": "For an electric dipole, the direction of the dipole moment $\\vec{p}$ points from the _____ charge to the _____ charge.",
+      "back": "negative; positive"
+    },
+    {
+      "front": "What is the electric field intensity $E$ on the axis of a charged ring of radius $R$ at a distance $x$ from the center?",
+      "back": "$E = \\frac{qx}{4\\pi\\epsilon_0 (x^2 + R^2)^{3/2}}$"
+    },
+    {
+      "front": "At what point on the axis of a uniformly charged ring is the electric field intensity equal to zero?",
+      "back": "At the center of the ring ($x=0$)."
+    },
+    {
+      "front": "What is the electric field intensity $E$ near an infinitely large charged plane with surface density $\\sigma$?",
+      "back": "$E = \\frac{\\sigma}{2\\epsilon_0}$"
+    },
+    {
+      "front": "Concept: Electrostatic Equilibrium in a conductor.",
+      "back": "Definition: A state where there is no net motion of charges within the conductor."
+    },
+    {
+      "front": "What is the magnitude of the electric field $\\vec{E}$ at any point inside a conductor in electrostatic equilibrium?",
+      "back": "Zero"
+    },
+    {
+      "front": "In a conductor at electrostatic equilibrium, the electric field at the surface must be _____ to the surface.",
+      "back": "perpendicular"
+    },
+    {
+      "front": "How does the electric potential vary between different points inside a conductor in electrostatic equilibrium?",
+      "back": "The potential is the same at all points; the conductor is an equipotential body."
+    },
+    {
+      "front": "Where does the net charge reside in a solid conductor that is in electrostatic equilibrium?",
+      "back": "Entirely on the outer surface."
+    },
+    {
+      "front": "For a conductor with a cavity containing no internal charge, where does any excess charge reside?",
+      "back": "Exclusively on the outer surface of the conductor."
+    },
+    {
+      "front": "If a charge $+q$ is placed inside the cavity of a conductor, what charge is induced on the inner surface of the cavity?",
+      "back": "$-q$"
+    },
+    {
+      "front": "How does the surface charge density $\\sigma$ on a conductor relate to the local curvature of the surface?",
+      "back": "Charge density is higher where the radius of curvature is smaller (sharp tips)."
+    },
+    {
+      "front": "What phenomenon occurs when the electric field near a sharp tip of a charged conductor becomes strong enough to ionize the surrounding air?",
+      "back": "Tip discharge (or corona discharge)."
+    },
+    {
+      "front": "The use of a grounded hollow conductor to protect its interior from external electric fields is called _____.",
+      "back": "electrostatic shielding"
+    },
+    {
+      "front": "How is the capacitance $C$ of an isolated conductor defined?",
+      "back": "$C = \\frac{Q}{V}$, the ratio of charge to potential."
+    },
+    {
+      "front": "What is the SI unit of capacitance?",
+      "back": "Farad (F), where 1 F = 1 C/V."
+    },
+    {
+      "front": "What is the formula for the capacitance $C$ of an isolated sphere of radius $R$?",
+      "back": "$C = 4\\pi\\epsilon_0 R$"
+    },
+    {
+      "front": "How is the capacitance $C$ of a capacitor defined in terms of charge $Q$ and potential difference $U$?",
+      "back": "$C = \\frac{Q}{U}$"
+    },
+    {
+      "front": "The capacitance of a capacitor depends only on the shape, size, and relative position of the conductors, and the _____ between them.",
+      "back": "dielectric (or medium)"
+    },
+    {
+      "front": "Formula: Capacitance $C$ of a parallel-plate capacitor with plate area $S$ and separation $d$ in vacuum.",
+      "back": "$C = \\frac{\\epsilon_0 S}{d}$"
+    },
+    {
+      "front": "How does the presence of a dielectric with relative permittivity $\\epsilon_r$ change the capacitance of a parallel-plate capacitor?",
+      "back": "It increases the capacitance by a factor of $\\epsilon_r$ ($C = \\frac{\\epsilon_0 \\epsilon_r S}{d}$)."
+    },
+    {
+      "front": "What is the equivalent capacitance $C$ for two capacitors $C_1$ and $C_2$ connected in parallel?",
+      "back": "$C = C_1 + C_2$"
+    },
+    {
+      "front": "What is the equivalent capacitance $C$ for two capacitors $C_1$ and $C_2$ connected in series?",
+      "back": "$\\frac{1}{C} = \\frac{1}{C_1} + \\frac{1}{C_2}$"
+    },
+    {
+      "front": "What is the first step in the general procedure for calculating the capacitance of a given capacitor?",
+      "back": "Assume the two plates carry charges $+Q$ and $-Q$."
+    }
+  ]
+}

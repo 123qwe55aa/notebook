@@ -1,0 +1,237 @@
+{
+  "title": "Physics Flashcards",
+  "cards": [
+    {
+      "front": "According to the Principle of Conservation of Charge, what is the status of the algebraic sum of electric charges in a closed system?",
+      "back": "The algebraic sum is constant."
+    },
+    {
+      "front": "What does the term 'quantized' imply regarding the observed amount of electric charge on an object?",
+      "back": "Every observable charge is an integer multiple of the basic unit $e$."
+    },
+    {
+      "front": "Formula: Magnitude of the electric force between two point charges ($q_1, q_2$) separated by distance $r$.",
+      "back": "$F = k \\frac{|q_1 q_2|}{r^2}$"
+    },
+    {
+      "front": "Condition: Under what specific geometric requirement is Coulomb's law strictly applicable?",
+      "back": "It is used for point charges."
+    },
+    {
+      "front": "Distinction: What is the primary difference between a conductor and an insulator regarding charge movement?",
+      "back": "Conductors permit easy movement of charge, while insulators do not."
+    },
+    {
+      "front": "Concept: Charging by Induction",
+      "back": "Definition: A process where a charged object gives another object a charge of opposite sign without losing any of its own charge."
+    },
+    {
+      "front": "The shifting of positive and negative charges within the molecules of a neutral insulator due to a nearby charge is called _____.",
+      "back": "Polarization"
+    },
+    {
+      "front": "How is the electric field $\\vec{E}$ at a point defined in terms of the electric force $\\vec{F}_0$ and a test charge $q_0$?",
+      "back": "$\\vec{E} = \\frac{\\vec{F}_0}{q_0}$"
+    },
+    {
+      "front": "Common Error: Why is it incorrect to assume that a charged particle always moves along electric field lines?",
+      "back": "Field lines indicate the direction of force (acceleration), not the velocity or trajectory."
+    },
+    {
+      "front": "Formula: Electric dipole moment magnitude $p$ for charges $q$ and $-q$ separated by distance $d$.",
+      "back": "$p = qd$"
+    },
+    {
+      "front": "Formula: Torque $\\tau$ exerted on an electric dipole in a uniform electric field $\\vec{E}$.",
+      "back": "$\\tau = pE \\sin \\phi$"
+    },
+    {
+      "front": "Formula: Potential energy $U$ of an electric dipole in an electric field.",
+      "back": "$U = -\\vec{p} \\cdot \\vec{E} = -pE \\cos \\phi$"
+    },
+    {
+      "front": "In an electrostatic situation, what is the magnitude of the electric field at every point within the material of a conductor?",
+      "back": "Zero"
+    },
+    {
+      "front": "Formula: Total electric flux $\\Phi_E$ through a closed surface.",
+      "back": "$\\Phi_E = \\oint \\vec{E} \\cdot d\\vec{A}$"
+    },
+    {
+      "front": "Law: The total electric flux through a closed surface equals the total net charge enclosed divided by the electric constant.",
+      "back": "Gauss's Law"
+    },
+    {
+      "front": "Formula: Gauss's Law",
+      "back": "$\\Phi_E = \\oint \\vec{E} \\cdot d\\vec{A} = \\frac{Q_{encl}}{\\epsilon_0}$"
+    },
+    {
+      "front": "Where does excess charge reside when placed on a solid conductor at rest?",
+      "back": "Entirely on the surface of the conductor."
+    },
+    {
+      "front": "Condition: When is Gauss's Law most useful for calculating the magnitude of an electric field?",
+      "back": "When the charge distribution has high symmetry (spherical, cylindrical, or planar)."
+    },
+    {
+      "front": "Formula: Magnitude of the electric field $E$ just outside a charged conductor with surface charge density $\\sigma$.",
+      "back": "$E = \\frac{\\sigma}{\\epsilon_0}$"
+    },
+    {
+      "front": "Distinction: What is the relationship between the direction of the electric field and the change in electric potential?",
+      "back": "The electric field points in the direction of decreasing potential."
+    },
+    {
+      "front": "Formula: Electric potential $V$ at a distance $r$ from a point charge $q$.",
+      "back": "$V = \\frac{1}{4\\pi\\epsilon_0} \\frac{q}{r}$"
+    },
+    {
+      "front": "Concept: Equipotential Surface",
+      "back": "Definition: A surface on which the electric potential is the same at every point."
+    },
+    {
+      "front": "What is the angular relationship between electric field lines and equipotential surfaces at their intersection points?",
+      "back": "They are always perpendicular."
+    },
+    {
+      "front": "How is the electric field component $E_x$ related to the potential $V$ in a given direction $x$?",
+      "back": "$E_x = -\\frac{\\partial V}{\\partial x}$"
+    },
+    {
+      "front": "Formula: Capacitance $C$ of a capacitor with charge $Q$ and potential difference $V_{ab}$.",
+      "back": "$C = \\frac{Q}{V_{ab}}$"
+    },
+    {
+      "front": "Formula: Electric energy density $u$ in a vacuum.",
+      "back": "$u = \\frac{1}{2} \\epsilon_0 E^2$"
+    },
+    {
+      "front": "How does the presence of a dielectric material with constant $K$ affect the capacitance $C$ of a vacuum capacitor $C_0$?",
+      "back": "It increases the capacitance ($C = KC_0$)."
+    },
+    {
+      "front": "Formula: Relationship between the induced surface charge density $\\sigma_i$ and the free surface charge density $\\sigma$ in a dielectric.",
+      "back": "$\\sigma_i = \\sigma (1 - \\frac{1}{K})$"
+    },
+    {
+      "front": "Law: The total magnetic flux through any closed surface is zero.",
+      "back": "Gauss's Law for Magnetism"
+    },
+    {
+      "front": "Formula: Gauss's Law for Magnetism",
+      "back": "$\\oint \\vec{B} \\cdot d\\vec{A} = 0$"
+    },
+    {
+      "front": "Formula: Magnetic force $\\vec{F}$ on a particle with charge $q$ moving with velocity $\\vec{v}$ in magnetic field $\\vec{B}$.",
+      "back": "$\\vec{F} = q\\vec{v} \\times \\vec{B}$"
+    },
+    {
+      "front": "What type of motion is performed by a charged particle moving perpendicular to a uniform magnetic field?",
+      "back": "Uniform circular motion."
+    },
+    {
+      "front": "Distinction: What property of a metal's charge carriers is determined by the polarity of the Hall emf?",
+      "back": "The sign (positive or negative) of the charge carriers."
+    },
+    {
+      "front": "Law: The induced emf in a closed loop equals the negative time rate of change of magnetic flux through the loop.",
+      "back": "Faraday's Law"
+    },
+    {
+      "front": "Formula: Faraday's Law",
+      "back": "$\\mathcal{E} = -\\frac{d\\Phi_B}{dt}$"
+    },
+    {
+      "front": "Law: The direction of any magnetic induction effect is such as to oppose the cause of the effect.",
+      "back": "Lenz's Law"
+    },
+    {
+      "front": "Distinction: How does an induced electric field produced by a changing magnetic field differ from an electrostatic field?",
+      "back": "The induced electric field is nonconservative (the line integral around a closed path is non-zero)."
+    },
+    {
+      "front": "What phenomenon occurs when a superconductor is cooled below its critical temperature $T_c$?",
+      "back": "Electrical resistance suddenly disappears."
+    },
+    {
+      "front": "Formula: The time-independent Schr\u00f6dinger equation for a particle of mass $m$ and potential energy $U$.",
+      "back": "$-\\frac{\\hbar^2}{2m} \\frac{d^2\\psi(x)}{dx^2} + U(x)\\psi(x) = E\\psi(x)$"
+    },
+    {
+      "front": "Formula: Normalization condition for a one-dimensional wave function $\\psi(x)$.",
+      "back": "$\\int_{-\\infty}^{\\infty} |\\psi(x)|^2 dx = 1$"
+    },
+    {
+      "front": "Concept: Stationary State",
+      "back": "Definition: A quantum state with a definite energy where the probability distribution function does not depend on time."
+    },
+    {
+      "front": "Formula: Allowed energy levels $E_n$ for a particle of mass $m$ in an infinite square well of width $L$.",
+      "back": "$E_n = \\frac{n^2 h^2}{8mL^2}$"
+    },
+    {
+      "front": "Condition: Why must the wave function $\\psi(x)$ be continuous at a boundary where the potential energy is finite?",
+      "back": "To ensure the second derivative remains finite in the Schr\u00f6dinger equation."
+    },
+    {
+      "front": "Formula: Selection rule for the change in the orbital quantum number $l$ during an allowed transition.",
+      "back": "$\\Delta l = \\pm 1$"
+    },
+    {
+      "front": "Concept: Exclusion Principle",
+      "back": "Definition: The principle that no two electrons in an atom can occupy the same quantum state simultaneously."
+    },
+    {
+      "front": "Distinction: What is the difference between 'free charge' and 'bound charge' in the context of Gauss's Law in dielectrics?",
+      "back": "Free charge is the charge on conductors, while bound charge is the induced charge on dielectric surfaces."
+    },
+    {
+      "front": "Condition: When can the potential difference $V_{ab}$ be calculated as $Ed$ between two points?",
+      "back": "In a uniform electric field when the path is parallel to the field lines."
+    },
+    {
+      "front": "Formula: Magnitude of the magnetic field $B$ produced by a long, straight conductor carrying current $I$ at distance $r$.",
+      "back": "$B = \\frac{\\mu_0 I}{2\\pi r}$"
+    },
+    {
+      "front": "What characterizes a 'forbidden transition' in atomic physics?",
+      "back": "A transition that does not obey the conservation of angular momentum selection rules."
+    },
+    {
+      "front": "The physical interpretation of $|\\psi(x)|^2$ at a specific point $x$ is the _____.",
+      "back": "Probability density"
+    },
+    {
+      "front": "Formula: Permittivity $\\epsilon$ of a dielectric material.",
+      "back": "$\\epsilon = K\\epsilon_0$"
+    },
+    {
+      "front": "Common Error: If the electric field is zero at a point, is the electric potential necessarily zero?",
+      "back": "No (potential is the integral of the field, or field is the gradient of potential)."
+    },
+    {
+      "front": "Formula: Ampere's Law (including displacement current).",
+      "back": "$\\oint \\vec{B} \\cdot d\\vec{l} = \\mu_0 (i_C + \\epsilon_0 \\frac{d\\Phi_E}{dt})$"
+    },
+    {
+      "front": "What is the 'central-field approximation' in many-electron atoms?",
+      "back": "Treating electrons as moving in a spherically symmetric field produced by the nucleus and the average cloud of other electrons."
+    },
+    {
+      "front": "Concept: Motional EMF",
+      "back": "Definition: The electromotive force induced in a conductor moving through a magnetic field."
+    },
+    {
+      "front": "Condition: In a particle in a box model, why must the wave function $\\psi$ be zero at $x=0$ and $x=L$?",
+      "back": "Because the potential energy is infinite outside the box, making the probability of finding the particle there zero."
+    },
+    {
+      "front": "Formula: Self-energy of a charge distribution.",
+      "back": "The total work/energy required to assemble the charge distribution from infinitesimal parts brought from infinity."
+    },
+    {
+      "front": "Common Error: In the context of quantum mechanics, does a 'stationary state' mean the particle is at rest?",
+      "back": "No; it means the probability distribution is stationary, not the particle."
+    }
+  ]
+}
