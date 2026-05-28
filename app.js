@@ -1,10 +1,10 @@
 const chapters = [
   {
     id: 'electrostatic',
-    number: '01',
-    title: '静电场基础：电场线与高斯定理',
-    source: './assets/pdfs/xuexitong_output.pdf',
-    sourceLabel: '学习通 PDF',
+    number: '09',
+    title: '静电场',
+    source: './assets/origin/第9章 静电场.pdf',
+    sourceLabel: '第9章 PDF',
     summary: '这一章的主线是：电荷产生电场，电场通过力体现；高斯定理把闭合面的电通量和内部净电荷联系起来。',
     concepts: ['电场强度定义为单位正试探电荷受力：$\\vec E=\\vec F/q_0$。', '电场线从正电荷出发、终止于负电荷；疏密表示场强大小，电场线不相交。', '电通量刻画电场穿过面积的多少，闭合曲面外法向为正。', '高斯定理适合高对称模型：球对称、柱对称、平面对称。'],
     formulas: ['$F=\\frac{1}{4\\pi\\epsilon_0}\\frac{|q_1q_2|}{r^2}$', '$\\vec E=\\vec F/q_0$', '$\\Phi_E=\\int \\vec E\\cdot d\\vec A$', '$\\oint \\vec E\\cdot d\\vec A=Q_{enc}/\\epsilon_0$'],
@@ -18,36 +18,15 @@ const chapters = [
       { prompt: '点电荷场强大小 $E=$', answer: '$\\frac{1}{4\\pi\\epsilon_0}\\frac{|q|}{r^2}$' },
       { prompt: '无限大均匀带电平面场强 $E=$', answer: '$\\sigma/(2\\epsilon_0)$' }
     ],
-    application: { title: '球壳的高斯面', prompt: '半径 $R$ 的均匀带电薄球壳，总电荷 $Q$。分别求 $r\lt R$ 与 $r\gt R$ 的电场强度。', answer: '$r\lt R$ 时 $Q_{enc}=0$，所以 $E=0$；$r\gt R$ 时等效为中心点电荷，$E=\\frac{1}{4\\pi\\epsilon_0}\\frac{Q}{r^2}$。' }
-  },
-  {
-    id: 'potential',
-    number: '02',
-    title: '电势、电容、介质与导体',
-    source: './assets/pdf_exports/第2章_电势电容_从整合版拆分.pdf',
-    sourceLabel: '第2章细分 PDF',
-    summary: '这一章把“力”的视角换成“能量”的视角：电势差来自电场积分，电容描述储电能力，导体静电平衡时内部电场为零。',
-    concepts: ['静电场是保守场，电场力做功与路径无关。', '电势是单位电荷的电势能，电场方向指向电势降低最快的方向。', '静电平衡导体内部 $E=0$，整体为等势体，表面场强垂直表面。', '电介质极化会削弱内部电场，使电容增大。'],
-    formulas: ['$V_B-V_A=-\\int_A^B\\vec E\\cdot d\\vec l$', '$\\Delta U=q\\Delta V$', '$C=Q/V$', '$C_{parallel}=\\epsilon S/d$', '$U=\\frac12CV^2=\\frac{Q^2}{2C}=\\frac12QV$'],
-    mistakes: ['电势是标量，电场是矢量。', '接电池时 $V$ 固定；断开电池时 $Q$ 固定。', '导体内部 $E=0$，但导体表面外侧电场通常不为零。'],
-    diagram: 'capacitor',
-    multiple: [
-      { q: '电容器充电后断开电源，再插入电介质，哪一项保持不变？', options: ['$V$', '$Q$', '$C$', '$E$'], answer: 1, explain: '断开后没有电荷通路，极板自由电荷量 $Q$ 保持不变。' },
-      { q: '静电平衡导体表面电场方向应当怎样？', options: ['沿表面切向', '垂直表面', '任意方向', '一定为零'], answer: 1, explain: '若存在切向分量，自由电荷会沿表面继续运动。' }
-    ],
-    blanks: [
-      { prompt: '电场力做功与电势能变化关系：$W_E=$', answer: '$-\\Delta U$' },
-      { prompt: '平行板电容器插入相对介电常数 $\\epsilon_r$ 后，电容变为', answer: '$C^\\prime=\\epsilon_r C$' }
-    ],
-    application: { title: '电池连接的平行板电容', prompt: '平行板电容器接在电压 $V$ 的电池上，插入相对介电常数 $\\epsilon_r$ 的电介质。判断 $C,Q,U$ 如何变化。', answer: '$C$ 增大为 $\\epsilon_rC$；因电池保持 $V$ 不变，$Q=CV$ 增大为 $\\epsilon_rQ$；储能 $U=\\frac12CV^2$ 也增大为 $\\epsilon_rU$。' }
+    application: { title: '球壳的高斯面', prompt: '半径 $R$ 的均匀带电薄球壳，总电荷 $Q$。分别求 $r\\lt R$ 与 $r\\gt R$ 的电场强度。', answer: '$r\\lt R$ 时 $Q_{enc}=0$，所以 $E=0$；$r\\gt R$ 时等效为中心点电荷，$E=\\frac{1}{4\\pi\\epsilon_0}\\frac{Q}{r^2}$。' }
   },
   {
     id: 'magnetostatic',
-    number: '03',
+    number: '10',
     title: '稳恒磁场',
-    source: './assets/pdf_exports/第10章 稳恒磁场.pdf',
+    source: './assets/origin/第10章 稳恒磁场.pdf',
     sourceLabel: '第10章 PDF',
-    summary: '稳恒磁场的核心是“运动电荷/电流产生磁场，磁场又对运动电荷/电流施力”。方向判断是高频考点。',
+    summary: '稳恒磁场的核心是"运动电荷/电流产生磁场，磁场又对运动电荷/电流施力"。方向判断是高频考点。',
     concepts: ['磁感应强度 $\\vec B$ 描述磁场强弱和方向。', '运动电荷受洛伦兹力，载流导线受安培力。', '磁场力总垂直于速度相关分量，通常不改变速率。', '安培环路定理适合长直导线、螺线管、环形螺线管等高对称电流。'],
     formulas: ['$\\vec F=q\\vec v\\times\\vec B$', '$\\vec F=I\\vec l\\times\\vec B$', '$B=\\mu_0I/(2\\pi r)$', '$\\oint\\vec B\\cdot d\\vec l=\\mu_0I_{enc}$'],
     mistakes: ['负电荷受力方向与右手定则给出的正电荷方向相反。', '磁力方向永远垂直于 $\\vec v$ 和 $\\vec B$ 构成的平面。', '$I_{enc}$ 是穿过环路所围曲面的净电流，要带方向。'],
@@ -64,14 +43,14 @@ const chapters = [
   },
   {
     id: 'em-induction',
-    number: '04',
-    title: '变化的电磁场',
-    source: './assets/pdf_exports/第11章 变化的电磁场.pdf',
+    number: '11',
+    title: '变换的电磁场',
+    source: './assets/origin/第11章 变换的电磁场.pdf',
     sourceLabel: '第11章 PDF',
-    summary: '变化电磁场的核心是“磁通量变化产生感应电动势”，再通过位移电流把变化电场也纳入磁场来源。',
+    summary: '变化电磁场的核心是"磁通量变化产生感应电动势"，再通过位移电流把变化电场也纳入磁场来源。',
     concepts: ['磁通量 $\\Phi_B$ 衡量磁场穿过面积的多少。', '法拉第定律给出感应电动势大小，楞次定律给出方向。', '感应电场不是静电场，其闭合环路积分可以不为零。', '位移电流说明变化电场也能激发磁场，是电磁波理论的关键补充。'],
     formulas: ['$\\Phi_B=\\int\\vec B\\cdot d\\vec A$', '$\\epsilon=-N\\frac{d\\Phi_B}{dt}$', '$\\epsilon=Blv$', '$I_d=\\epsilon_0\\frac{d\\Phi_E}{dt}$', '$c=1/\\sqrt{\\mu_0\\epsilon_0}$'],
-    mistakes: ['负号表示反抗“磁通变化”，不是永远取负数。', '磁通量变化可以来自 $B$、面积、夹角任意一种变化。', '感应电场可以是涡旋场，不能简单套静电势差路径无关。'],
+    mistakes: ['负号表示反抗"磁通变化"，不是永远取负数。', '磁通量变化可以来自 $B$、面积、夹角任意一种变化。', '感应电场可以是涡旋场，不能简单套静电势差路径无关。'],
     diagram: 'induction',
     multiple: [
       { q: '法拉第定律中的负号体现什么？', options: ['库仑定律', '楞次定律/能量守恒', '欧姆定律', '高斯定理'], answer: 1, explain: '感应电流方向总是反抗引起它的磁通变化。' },
@@ -82,16 +61,33 @@ const chapters = [
       { prompt: '位移电流：$I_d=$', answer: '$\\epsilon_0 d\\Phi_E/dt$' }
     ],
     application: { title: '线圈进入磁场', prompt: '矩形线圈以速度 $v$ 进入垂直纸面的匀强磁场 $B$，有效边长为 $l$。求进入阶段感应电动势并判断方向。', answer: '$|\\epsilon|=Blv$；方向用楞次定律判断：若进入使入纸面磁通增加，感应电流产生出纸面磁场来反抗增加。' }
+  },
+  {
+    id: 'quantum',
+    number: '15',
+    title: '量子物理基础',
+    source: './assets/origin/第15章 量子物理基础.pdf',
+    sourceLabel: '第15章 PDF',
+    summary: '内容待补充',
+    concepts: ['待补充'],
+    formulas: ['待补充'],
+    mistakes: ['待补充'],
+    diagram: false,
+    multiple: [
+      { q: '内容待补充', options: ['待补充', '待补充', '待补充', '待补充'], answer: 0, explain: '待补充' }
+    ],
+    blanks: [
+      { prompt: '内容待补充', answer: '待补充' }
+    ],
+    application: { title: '待补充', prompt: '待补充', answer: '待补充' }
   }
 ];
 
 const formulas = chapters.flatMap(ch => ch.formulas.map(f => [ch.title, f, '见章节工作台中的适用场景。', ch.mistakes[0]])).concat([
-  ['相对论质能关系', '$E=mc^2$', '质量与能量等价，核反应质量亏损对应能量释放。', '不要简单理解为“质量凭空消失”。'],
   ['薛定谔方程', '$-\\frac{\\hbar^2}{2m}\\nabla^2\\Psi+U\\Psi=i\\hbar\\frac{\\partial\\Psi}{\\partial t}$', '非相对论量子系统的波函数演化。', '$|\\Psi|^2$ 才对应概率密度。']
 ]);
 
 const quiz = chapters.map(ch => ch.multiple[0]);
-quiz.push({ q: '量子力学中通常有直接物理意义的是？', options: ['$\\Psi$', '$|\\Psi|^2$', '$\\nabla\\Psi$', '$1/\\Psi$'], answer: 1, explain: '$|\\Psi|^2$ 表示概率密度，这是考试常见概念点。' });
 
 let activeChapter = 0;
 let exerciseData = [];
@@ -130,7 +126,7 @@ function renderChapter() {
     <article class="practice-board">
       <div class="practice-column"><h4>选择题</h4>${ch.multiple.map((q, i) => renderChoice(q, i)).join('')}</div>
       <div class="practice-column"><h4>填空题</h4>${ch.blanks.map((q, i) => renderBlank(q, i)).join('')}</div>
-      <div class="application-card"><h4>应用图题：${ch.application.title}</h4>${diagramSvg(ch.diagram)}<p>${ch.application.prompt}</p><button class="reveal-app" type="button">显示解题思路</button><div class="app-answer">${ch.application.answer}</div></div>
+      <div class="application-card"><h4>应用图题：${ch.application.title}</h4>${ch.diagram ? diagramSvg(ch.diagram) : ''}<p>${ch.application.prompt}</p><button class="reveal-app" type="button">显示解题思路</button><div class="app-answer">${ch.application.answer}</div></div>
     </article>`;
   if (window.MathJax?.typesetPromise) MathJax.typesetPromise();
 }
