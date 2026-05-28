@@ -397,4 +397,69 @@ function initExamCountdown() {
   timer = setInterval(tick, 1000);
 }
 
+// ── Source tabs ─────────────────────────────────────────
+const tabs = document.querySelectorAll('.source-tab');
+const panels = document.querySelectorAll('.source-panel');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+    panels.forEach(p => p.hidden = true);
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+    const panel = document.getElementById('panel-' + tab.dataset.source);
+    panel.hidden = false;
+    panel.classList.add('active');
+  });
+});
+
+// ── Embed viewer ───────────────────────────────────────
+const viewer = document.getElementById('embedViewer');
+const overlay = document.getElementById('embedOverlay');
+const embedBody = document.getElementById('embedBody');
+const embedTitle = document.getElementById('embedTitle');
+
+function openEmbed(url, type, name) {
+  embedBody.innerHTML = '';
+  embedTitle.textContent = name || url.split('/').pop();
+  if (type === 'iframe') {
+    const el = document.createElement('iframe');
+    el.src = url;
+    embedBody.appendChild(el);
+  } else if (type === 'video') {
+    const el = document.createElement('video');
+    el.src = url; el.controls = true; el.autoplay = true;
+    embedBody.appendChild(el);
+  } else if (type === 'audio') {
+    const el = document.createElement('audio');
+    el.src = url; el.controls = true; el.autoplay = true;
+    embedBody.appendChild(el);
+  } else if (type === 'img') {
+    const el = document.createElement('img');
+    el.src = url;
+    embedBody.appendChild(el);
+  } else if (type === 'pdf') {
+    const el = document.createElement('iframe');
+    el.src = url;
+    el.className = 'pdf-embed';
+    embedBody.appendChild(el);
+  }
+  viewer.classList.add('active');
+  overlay.classList.add('active');
+}
+
+function closeEmbed() {
+  viewer.classList.remove('active');
+  overlay.classList.remove('active');
+  embedBody.innerHTML = '';
+}
+
+document.querySelectorAll('.embed-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    openEmbed(btn.dataset.embed, btn.dataset.type, btn.closest('.asset-item').querySelector('.asset-name').textContent.trim());
+  });
+});
+
+document.getElementById('embedClose').addEventListener('click', closeEmbed);
+overlay.addEventListener('click', closeEmbed);
+
 initExamCountdown();
