@@ -5,15 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>大学物理期末复习 Playground</title>
   <meta name="description" content="基于 NotebookLM、xuexitong PDF 与整合资料生成的大学物理期末复习交互网站。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" href="data:," />
-  <link rel="stylesheet" href="styles.css?v=controlbench2" />
+  <link rel="stylesheet" href="styles.css?v=polished1" />
   <script>
     window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }, svg: { fontCache: 'global' } };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
   <script defer src="app.js?v=playground7"></script>
+  <script>
+    /* Scroll-spy: highlight active nav link */
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('main section[id], header[id]');
+      const navLinks = document.querySelectorAll('.nav a[href^="#"]');
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+          }
+        });
+      }, { rootMargin: '-20% 0px -70% 0px' });
+      sections.forEach(s => obs.observe(s));
+    });
+  </script>
 </head>
 <body>
+  <a class="skip-nav" href="#playground">跳过导航，直接进入练习场</a>
   <header class="hero" id="top">
     <nav class="nav" aria-label="主导航">
       <a href="#playground">Playground</a>
@@ -214,28 +232,28 @@
           <h3 class="asset-type-label">视频 / 音频</h3>
           <div class="asset-row">
             <div class="asset-item">
-              <span class="asset-name">大物期末逻辑链 <span class="tag">MP4</span></span>
+              <span class="asset-name">大物期末逻辑链 <span class="tag" data-ext="MP4">MP4</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=1IgYA2gEuNf0z4-rlzMvqiGBbAtD46rFB" data-type="video" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1IgYA2gEuNf0z4-rlzMvqiGBbAtD46rFB" target="_blank">下载</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">大物期末逻辑链 <span class="tag">MP3</span></span>
+              <span class="asset-name">大物期末逻辑链 <span class="tag" data-ext="MP3">MP3</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=1j_nZuwkhhQspDce-16-oUZDjQXTGx8tw" data-type="audio" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1j_nZuwkhhQspDce-16-oUZDjQXTGx8tw" target="_blank">下载</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">物理实在的演变：全景分析 <span class="tag">MP4</span></span>
+              <span class="asset-name">物理实在的演变：全景分析 <span class="tag" data-ext="MP4">MP4</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=1wB_Dyo51kaqmuXTgh4KHnDrjEVzHoE_N" data-type="video" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1wB_Dyo51kaqmuXTgh4KHnDrjEVzHoE_N" target="_blank">下载</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">Why Space Shrinks and Time Slows Down <span class="tag">MP3</span></span>
+              <span class="asset-name">Why Space Shrinks and Time Slows Down <span class="tag" data-ext="MP3">MP3</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=1flhSUJYOBnQlRI7m8UiFXKRG7CmXJQEs" data-type="audio" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1flhSUJYOBnQlRI7m8UiFXKRG7CmXJQEs" target="_blank">下载</a>
@@ -248,21 +266,21 @@
           <h3 class="asset-type-label">图片 / 知识图</h3>
           <div class="asset-row">
             <div class="asset-item">
-              <span class="asset-name">Physics: Electrostatics and Relativistic Dynamics <span class="tag">PNG</span></span>
+              <span class="asset-name">Physics: Electrostatics and Relativistic Dynamics <span class="tag" data-ext="PNG">PNG</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=15Jf6T-n9P4LFH6bHfbP90adxbhTtTAbt" data-type="img" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=15Jf6T-n9P4LFH6bHfbP90adxbhTtTAbt" target="_blank">查看</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">Unified University Physics Framework <span class="tag">PNG</span></span>
+              <span class="asset-name">Unified University Physics Framework <span class="tag" data-ext="PNG">PNG</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=12FR7oxuf14EeZrdB7CepSQHVosLfXVEz" data-type="img" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=12FR7oxuf14EeZrdB7CepSQHVosLfXVEz" target="_blank">查看</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">大学物理核心知识框架 <span class="tag">PNG</span></span>
+              <span class="asset-name">大学物理核心知识框架 <span class="tag" data-ext="PNG">PNG</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=1OLva4ZSJKOfvxOkB8ob9tyvMHMW9h41z" data-type="img" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1OLva4ZSJKOfvxOkB8ob9tyvMHMW9h41z" target="_blank">查看</a>
@@ -275,19 +293,19 @@
           <h3 class="asset-type-label">JSON 数据</h3>
           <div class="asset-row">
             <div class="asset-item">
-              <span class="asset-name">General Physics Concepts <span class="tag">JSON</span></span>
+              <span class="asset-name">General Physics Concepts <span class="tag" data-ext="JSON">JSON</span></span>
               <div class="asset-actions">
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1jZUsx5Pb3HnlvjlDgHHpVJU6QDhGiMyJ" target="_blank">下载</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">Physics Flashcards <span class="tag">JSON</span></span>
+              <span class="asset-name">Physics Flashcards <span class="tag" data-ext="JSON">JSON</span></span>
               <div class="asset-actions">
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1FGwhf37jnIOeIMHeiIQfCBm-sbcurur7" target="_blank">下载</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">Physics Quiz <span class="tag">JSON</span></span>
+              <span class="asset-name">Physics Quiz <span class="tag" data-ext="JSON">JSON</span></span>
               <div class="asset-actions">
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1fx_Mn7-9VCVsdnVaQU0m4Y8oaATjhqcE" target="_blank">下载</a>
               </div>
@@ -303,14 +321,14 @@
           <h3 class="asset-type-label">音频 <span class="tag">2 文件</span></h3>
           <div class="asset-row">
             <div class="asset-item">
-              <span class="asset-name">大物期末逻辑链 <span class="tag">MP3</span></span>
+              <span class="asset-name">大物期末逻辑链 <span class="tag" data-ext="MP3">MP3</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=1j_nZuwkhhQspDce-16-oUZDjQXTGx8tw" data-type="audio" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1j_nZuwkhhQspDce-16-oUZDjQXTGx8tw" target="_blank">下载</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">Why Space Shrinks and Time Slows Down <span class="tag">MP3</span></span>
+              <span class="asset-name">Why Space Shrinks and Time Slows Down <span class="tag" data-ext="MP3">MP3</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=1flhSUJYOBnQlRI7m8UiFXKRG7CmXJQEs" data-type="audio" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1flhSUJYOBnQlRI7m8UiFXKRG7CmXJQEs" target="_blank">下载</a>
@@ -322,7 +340,7 @@
           <h3 class="asset-type-label">视频 <span class="tag">1 文件</span></h3>
           <div class="asset-row">
             <div class="asset-item">
-              <span class="asset-name">The Unseen Rules <span class="tag">MP4</span></span>
+              <span class="asset-name">The Unseen Rules <span class="tag" data-ext="MP4">MP4</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=1InZeVc7YpS_E1ExxLtKcLAP8YNiHk2Ng" data-type="video" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1InZeVc7YpS_E1ExxLtKcLAP8YNiHk2Ng" target="_blank">下载</a>
@@ -334,19 +352,19 @@
           <h3 class="asset-type-label">闪卡 <span class="tag">3文件</span></h3>
           <div class="asset-row">
             <div class="asset-item">
-              <span class="asset-name">Physics Flashcards <span class="tag">JSON</span></span>
+              <span class="asset-name">Physics Flashcards <span class="tag" data-ext="JSON">JSON</span></span>
               <div class="asset-actions">
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1FGwhf37jnIOeIMHeiIQfCBm-sbcurur7" target="_blank">下载</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">Physics Flashcards (2) <span class="tag">JSON</span></span>
+              <span class="asset-name">Physics Flashcards (2) <span class="tag" data-ext="JSON">JSON</span></span>
               <div class="asset-actions">
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1f2vcbWJr4401cDqjSmc2AitTJVdG_3fH" target="_blank">下载</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">Physics Flashcards (3) <span class="tag">JSON</span></span>
+              <span class="asset-name">Physics Flashcards (3) <span class="tag" data-ext="JSON">JSON</span></span>
               <div class="asset-actions">
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1lPf8UtHqYBCxbSp1jx0gfyDxn7GRa4dD" target="_blank">下载</a>
               </div>
@@ -357,19 +375,19 @@
           <h3 class="asset-type-label">Quiz 题库 <span class="tag">3文件</span></h3>
           <div class="asset-row">
             <div class="asset-item">
-              <span class="asset-name">Physics Quiz <span class="tag">JSON</span></span>
+              <span class="asset-name">Physics Quiz <span class="tag" data-ext="JSON">JSON</span></span>
               <div class="asset-actions">
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1fx_Mn7-9VCVsdnVaQU0m4Y8oaATjhqcE" target="_blank">下载</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">Physics Quiz (2) <span class="tag">JSON</span></span>
+              <span class="asset-name">Physics Quiz (2) <span class="tag" data-ext="JSON">JSON</span></span>
               <div class="asset-actions">
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1iHeVfvjikJpI61ICus-g7OcIHcjlS_nE" target="_blank">下载</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">Physics Quiz (3) <span class="tag">JSON</span></span>
+              <span class="asset-name">Physics Quiz (3) <span class="tag" data-ext="JSON">JSON</span></span>
               <div class="asset-actions">
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1HbayO_Zgk9lqNYTEStjAY7Ftxqq6f6wz" target="_blank">下载</a>
               </div>
@@ -380,21 +398,21 @@
           <h3 class="asset-type-label">信息图 <span class="tag">3文件</span></h3>
           <div class="asset-row">
             <div class="asset-item">
-              <span class="asset-name">Physics: Electrostatics and Relativistic Dynamics <span class="tag">PNG</span></span>
+              <span class="asset-name">Physics: Electrostatics and Relativistic Dynamics <span class="tag" data-ext="PNG">PNG</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=15Jf6T-n9P4LFH6bHfbP90adxbhTtTAbt" data-type="img" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=15Jf6T-n9P4LFH6bHfbP90adxbhTtTAbt" target="_blank">查看</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">Unified University Physics Framework <span class="tag">PNG</span></span>
+              <span class="asset-name">Unified University Physics Framework <span class="tag" data-ext="PNG">PNG</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=12FR7oxuf14EeZrdB7CepSQHVosLfXVEz" data-type="img" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=12FR7oxuf14EeZrdB7CepSQHVosLfXVEz" target="_blank">查看</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">大学物理核心知识框架 <span class="tag">PNG</span></span>
+              <span class="asset-name">大学物理核心知识框架 <span class="tag" data-ext="PNG">PNG</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=1OLva4ZSJKOfvxOkB8ob9tyvMHMW9h41z" data-type="img" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1OLva4ZSJKOfvxOkB8ob9tyvMHMW9h41z" target="_blank">查看</a>
@@ -406,7 +424,7 @@
           <h3 class="asset-type-label">思维导图 <span class="tag">1 文件</span></h3>
           <div class="asset-row">
             <div class="asset-item">
-              <span class="asset-name">General Physics Concepts <span class="tag">JSON</span></span>
+              <span class="asset-name">General Physics Concepts <span class="tag" data-ext="JSON">JSON</span></span>
               <div class="asset-actions">
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1jZUsx5Pb3HnlvjlDgHHpVJU6QDhGiMyJ" target="_blank">下载</a>
               </div>
@@ -417,21 +435,21 @@
           <h3 class="asset-type-label">报告 <span class="tag">3文件</span></h3>
           <div class="asset-row">
             <div class="asset-item">
-              <span class="asset-name">大学物理期末复习指南：电荷与静电场 <span class="tag">MD</span></span>
+              <span class="asset-name">大学物理期末复习指南：电荷与静电场 <span class="tag" data-ext="MD">MD</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=1uVv8uSI854P_IbNqndWqrYIaIaI7kpeP" data-type="iframe" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1uVv8uSI854P_IbNqndWqrYIaIaI7kpeP" target="_blank">新窗口</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">大学物理期末复习综合指南：静电场与狭义相对论 <span class="tag">MD</span></span>
+              <span class="asset-name">大学物理期末复习综合指南：静电场与狭义相对论 <span class="tag" data-ext="MD">MD</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=1se9CV4LJJlt0K5F8MsjIb2glauJmk8W7" data-type="iframe" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1se9CV4LJJlt0K5F8MsjIb2glauJmk8W7" target="_blank">新窗口</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">大学物理核心复习指南：狭义相对论动力学与静电场 <span class="tag">MD</span></span>
+              <span class="asset-name">大学物理核心复习指南：狭义相对论动力学与静电场 <span class="tag" data-ext="MD">MD</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=1qnlubQGI6t3KblNgpo6rTGSWcTGrvKQ9" data-type="iframe" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1qnlubQGI6t3KblNgpo6rTGSWcTGrvKQ9" target="_blank">新窗口</a>
@@ -443,21 +461,21 @@
           <h3 class="asset-type-label">幻灯片 PDF <span class="tag">3文件</span></h3>
           <div class="asset-row">
             <div class="asset-item">
-              <span class="asset-name">Physics Architecture Blueprint <span class="tag">PDF</span></span>
+              <span class="asset-name">Physics Architecture Blueprint <span class="tag" data-ext="PDF">PDF</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=1OkVrDEXu5MlvEBxzGyWQgGw0Bd-Mv6q8" data-type="pdf" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1OkVrDEXu5MlvEBxzGyWQgGw0Bd-Mv6q8" target="_blank">下载</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">The Physics Blueprint <span class="tag">PDF</span></span>
+              <span class="asset-name">The Physics Blueprint <span class="tag" data-ext="PDF">PDF</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=1W0ZDXBHvX9nGsJL-FZFza_bLKRKntKmD" data-type="pdf" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1W0ZDXBHvX9nGsJL-FZFza_bLKRKntKmD" target="_blank">下载</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">Relativity and Electrostatics <span class="tag">PDF</span></span>
+              <span class="asset-name">Relativity and Electrostatics <span class="tag" data-ext="PDF">PDF</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="https://drive.google.com/uc?export=download&id=1e60fmQRN0OBgKcYPPulOROEflzwPTUrF" data-type="pdf" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1e60fmQRN0OBgKcYPPulOROEflzwPTUrF" target="_blank">下载</a>
@@ -469,19 +487,19 @@
           <h3 class="asset-type-label">幻灯片 PPTX <span class="tag">3文件</span></h3>
           <div class="asset-row">
             <div class="asset-item">
-              <span class="asset-name">Physics Architecture Blueprint <span class="tag">PPTX</span></span>
+              <span class="asset-name">Physics Architecture Blueprint <span class="tag" data-ext="PPTX">PPTX</span></span>
               <div class="asset-actions">
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=15PuFrEWQCWhd70z4VBPzhcTsPCh_RIJX" target="_blank">下载</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">The Physics Blueprint <span class="tag">PPTX</span></span>
+              <span class="asset-name">The Physics Blueprint <span class="tag" data-ext="PPTX">PPTX</span></span>
               <div class="asset-actions">
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1xyeilFPleEPbDSJr257NeFx0sX3L1H6z" target="_blank">下载</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">Relativity and Electrostatics <span class="tag">PPTX</span></span>
+              <span class="asset-name">Relativity and Electrostatics <span class="tag" data-ext="PPTX">PPTX</span></span>
               <div class="asset-actions">
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1J9LdJ-zT7ON2QUGPI5B5zhiUl1xVy8EA" target="_blank">下载</a>
               </div>
@@ -492,7 +510,7 @@
           <h3 class="asset-type-label">数据表格 <span class="tag">1 文件</span></h3>
           <div class="asset-row">
             <div class="asset-item">
-              <span class="asset-name">物理核心公式汇总表 <span class="tag">CSV</span></span>
+              <span class="asset-name">物理核心公式汇总表 <span class="tag" data-ext="CSV">CSV</span></span>
               <div class="asset-actions">
                 <a class="button ghost compact" href="https://drive.google.com/uc?export=download&id=1gswRiRvyJOX8P5QifA4PhTKpVFtaK-9K" target="_blank">下载</a>
               </div>
@@ -507,28 +525,28 @@
         <div class="asset-group">
           <div class="asset-row">
             <div class="asset-item">
-              <span class="asset-name">第9章 静电场 <span class="tag">PDF</span></span>
+              <span class="asset-name">第9章 静电场 <span class="tag" data-ext="PDF">PDF</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="/assets/origin/第9章 静电场.pdf" data-type="pdf" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/open?id=1XPfrC26yIxeiozRNlwsgqJj1NzVfQabb" target="_blank">下载</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">第10章 稳恒磁场 <span class="tag">PDF</span></span>
+              <span class="asset-name">第10章 稳恒磁场 <span class="tag" data-ext="PDF">PDF</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="/assets/origin/第10章 稳恒磁场.pdf" data-type="pdf" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/open?id=1-jg3snxcOHSs8aidCxUgRrNaqhyRtFSG" target="_blank">下载</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">第11章 变换的电磁场 <span class="tag">PDF</span></span>
+              <span class="asset-name">第11章 变换的电磁场 <span class="tag" data-ext="PDF">PDF</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="/assets/origin/第11章 变换的电磁场.pdf" data-type="pdf" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/open?id=1kjpkg3rQ8W7ff6goOWC1OjVb121PHzni" target="_blank">下载</a>
               </div>
             </div>
             <div class="asset-item">
-              <span class="asset-name">第15章 量子物理基础 <span class="tag">PDF</span></span>
+              <span class="asset-name">第15章 量子物理基础 <span class="tag" data-ext="PDF">PDF</span></span>
               <div class="asset-actions">
                 <button class="button ghost compact embed-btn" data-embed="/assets/origin/第15章 量子物理基础.pdf" data-type="pdf" title="嵌入预览">嵌入</button>
                 <a class="button ghost compact" href="https://drive.google.com/open?id=1qa6Ml873BuKPmjnkEX54yDiboGN5fhDJ" target="_blank">下载</a>
@@ -550,6 +568,9 @@
     </section>
   </main>
 
-  <footer class="footer"><a href="#top">回到顶部</a><span>Text-first interactive playground built from local project materials.</span></footer>
+  <footer class="footer">
+    <span>Text-first interactive playground · 大学物理期末复习 &mdash; built from local project materials</span>
+    <a href="#top">↑ 回到顶部</a>
+  </footer>
 </body>
 </html>
