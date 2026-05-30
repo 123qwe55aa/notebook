@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>物理核心公式汇总表</title>
+  <style>:root { --bg:#f7f8fa; --fg:#1c2430; --muted:#5f6b7a; --line:#d6dde7; --card:#ffffff; --head:#0f2f57; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.7 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif; }
+main { max-width: 980px; margin: 0 auto; padding: 32px 18px 56px; }
+h1,h2,h3 { color: var(--head); line-height: 1.25; }
+h1 { font-size: 2rem; margin: 0 0 1rem; }
+h2 { margin-top: 2rem; padding-top: .8rem; border-top: 1px solid var(--line); }
+table { width:100%; border-collapse: collapse; margin: 1rem 0; background: var(--card); }
+th,td { border:1px solid var(--line); padding:.55rem .65rem; vertical-align: top; }
+th { background:#eef4fb; text-align:left; }
+code { background:#eef2f6; padding:.08rem .3rem; border-radius:4px; }
+pre { background:#eef2f6; padding:12px; border-radius:8px; overflow:auto; }
+blockquote { margin: 1rem 0; border-left: 4px solid #9ab3d1; padding: .2rem .9rem; color: var(--muted); }
+.small { color: var(--muted); font-size: .9rem; margin-bottom: 1.25rem; }</style>
+  <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  },
+  options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <main>
+    <p class="small">由 CSV 自动转换。</p>
+    <h1>物理核心公式汇总表</h1><table><thead><tr><th>﻿物理量</th><th>公式</th><th>单位</th><th>适用条件</th><th>常见误区</th><th>来源</th></tr></thead><tbody><tr><td>静电场力 (库仑定律)</td><td>F = (1/4πε₀) * |q₁q₂| / r²</td><td>牛顿 (N)</td><td>真空中，点电荷</td><td>误将库仑定律应用于非点电荷或介质中的电荷而未修正</td><td>[1]</td></tr><tr><td>电场强度 (点电荷)</td><td>E = (1/4πε₀) * |q| / r²</td><td>牛顿/库仑 (N/C) 或 伏特/米 (V/m)</td><td>真空中，点电荷产生的场</td><td>混淆电场强度与电场力，忽略电场强度是矢量</td><td>[1]</td></tr><tr><td>电势 (点电荷)</td><td>V = q / (4πε₀r)</td><td>伏特 (V)</td><td>点电荷，选取无穷远处为电势零点</td><td>误认为电势为零处电场强度也一定为零</td><td>[1]</td></tr><tr><td>磁通量</td><td>ΦB = ∫ B · dA = BA cos φ</td><td>韦伯 (Wb)</td><td>均匀磁场，平面面积</td><td>混淆磁通量与磁感应强度</td><td>[1]</td></tr><tr><td>安培力</td><td>F = I l × B = IlB sin φ</td><td>牛顿 (N)</td><td>均匀磁场，直导线</td><td>错误判定力的方向，忽略电流方向与磁场方向平行时力为零</td><td>[1]</td></tr><tr><td>磁力 (动电荷)</td><td>F = qv × B = qvB sin φ</td><td>牛顿 (N)</td><td>运动的带电粒子</td><td>忽略静止电荷不受磁场力，或忘记负电荷受力方向相反</td><td>[1]</td></tr><tr><td>感应电动势 (法拉第定律)</td><td>ε = -dΦB / dt</td><td>伏特 (V)</td><td>磁通量随时间变化的回路</td><td>忽略负号（楞次定律）表示的物理意义</td><td>[1]</td></tr><tr><td>质能方程</td><td>E = mc²</td><td>焦耳 (J)</td><td>相对论条件下</td><td>混淆静止质量与相对论质量</td><td>根据背景知识推断，文中提及相对论修正在[1]</td></tr><tr><td>波函数 (薛定谔方程)</td><td>-(ℏ²/2m)∇²Ψ + UΨ = iℏ(∂Ψ/∂t)</td><td>无 (概率密度单位为 m⁻³)</td><td>非相对论性量子系统</td><td>误将波函数 Ψ 视为物质波，实际 ｜Ψ|² 代表概率密度</td><td>[1]</td></tr><tr><td>自旋角动量</td><td>Sz = msℏ (ms = ±1/2)</td><td>焦耳·秒 (J·s)</td><td>电子等自旋 1/2 粒子</td><td>将自旋视为物体真实的经典旋转</td><td>[1]</td></tr><tr><td>库仑力</td><td>F = (1 / (4 * π * ε0)) * (q1 * q2 / r^2)</td><td>N (牛顿)</td><td>真空中，点电荷</td><td>忽略点电荷模型的前提，将其应用于近距离带电体</td><td>[2]</td></tr><tr><td>电场强度</td><td>E = F / q0</td><td>N/C (或 V/m)</td><td>静电场，试验电荷q0足够小</td><td>误认为场强E的大小与试验电荷q0成反比</td><td>[2]</td></tr><tr><td>电场强度通量</td><td>Φe = ∮ E · dS = Σqi / ε0</td><td>V·m</td><td>真空中，任何闭合曲面</td><td>认为闭合面上的场强仅由面内电荷产生（实际上由所有电荷决定）</td><td>[3]</td></tr><tr><td>长度收缩</td><td>l = l0 * sqrt(1 - (v/c)^2)</td><td>m (米)</td><td>惯性系间相对运动，沿运动方向</td><td>误认为垂直于运动方向的长度也会发生收缩</td><td>[4]</td></tr><tr><td>时间延缓</td><td>Δt = Δt&#x27; / sqrt(1 - (v/c)^2)</td><td>s (秒)</td><td>惯性系间相对运动</td><td>混淆固有时间（原时）与观测时间</td><td>[4]</td></tr><tr><td>相对论质量</td><td>m = m0 / sqrt(1 - (v/c)^2)</td><td>kg (千克)</td><td>高速运动物体</td><td>混淆静止质量m0与运动质量m</td><td>[5]</td></tr><tr><td>质能方程</td><td>E = mc^2</td><td>J (焦耳)</td><td>狭义相对论范围内</td><td>认为质量转化成了能量（实质是能量与质量的等价性）</td><td>[5]</td></tr><tr><td>光子动量</td><td>p = h / λ</td><td>kg·m/s</td><td>光子（静止质量为零）</td><td>试图计算光子的静止质量（光子无静止质量）</td><td>[5]</td></tr></tbody></table>
+  </main>
+</body>
+</html>
