@@ -1,0 +1,106 @@
+{
+  "title": "第15章 量子物理基础题库",
+  "questionTypes": ["multiple-choice", "fill-in-the-blank", "application-with-diagram"],
+  "questions": [
+    {
+      "type": "multiple-choice",
+      "question": "黑体辐射峰值波长随温度升高如何变化？",
+      "answerOptions": [
+        {"text": "变长", "isCorrect": false, "rationale": "这与维恩位移定律相反。"},
+        {"text": "变短", "isCorrect": true, "rationale": "由 λmT=b，T 增大时 λm 减小。"},
+        {"text": "不变", "isCorrect": false, "rationale": "峰值波长与温度有关。"},
+        {"text": "只与材料有关", "isCorrect": false, "rationale": "理想黑体峰值波长由温度决定。"}
+      ],
+      "hint": "看 λmT=b。"
+    },
+    {
+      "type": "multiple-choice",
+      "question": "光电效应中，保持频率不变而增大光强，主要增大的是哪一项？",
+      "answerOptions": [
+        {"text": "最大初动能", "isCorrect": false, "rationale": "最大初动能由频率决定。"},
+        {"text": "遏止电压", "isCorrect": false, "rationale": "遏止电压由最大初动能决定。"},
+        {"text": "饱和光电流", "isCorrect": true, "rationale": "光强增大使单位时间光子数增多，逸出电子数增多。"},
+        {"text": "红限频率", "isCorrect": false, "rationale": "红限频率由金属逸出功决定。"}
+      ],
+      "hint": "区分频率和光强。"
+    },
+    {
+      "type": "multiple-choice",
+      "question": "康普顿效应中散射光波长变长，说明光子在碰撞后：",
+      "answerOptions": [
+        {"text": "能量增大", "isCorrect": false, "rationale": "波长变长意味着频率降低，能量减小。"},
+        {"text": "能量减小", "isCorrect": true, "rationale": "部分能量传给反冲电子。"},
+        {"text": "速度小于 c", "isCorrect": false, "rationale": "真空中光子仍以 c 传播。"},
+        {"text": "静质量变大", "isCorrect": false, "rationale": "光子静质量仍为 0。"}
+      ],
+      "hint": "E=hc/λ。"
+    },
+    {
+      "type": "multiple-choice",
+      "question": "氢原子从 n=4 跃迁到 n=2 时会：",
+      "answerOptions": [
+        {"text": "吸收光子", "isCorrect": false, "rationale": "从低到高才吸收。"},
+        {"text": "发射光子", "isCorrect": true, "rationale": "从高能级到低能级释放能量。"},
+        {"text": "发生电离", "isCorrect": false, "rationale": "电离需要跃迁到 E=0 的自由态。"},
+        {"text": "能量不变", "isCorrect": false, "rationale": "两个能级不同。"}
+      ],
+      "hint": "比较 E4 和 E2。"
+    },
+    {
+      "type": "multiple-choice",
+      "question": "德布罗意波长公式 λ=h/p 表明：",
+      "answerOptions": [
+        {"text": "只有光具有波动性", "isCorrect": false, "rationale": "德布罗意把波动性推广到实物粒子。"},
+        {"text": "实物粒子也具有波动性", "isCorrect": true, "rationale": "物质波由此提出。"},
+        {"text": "宏观物体没有动量", "isCorrect": false, "rationale": "宏观物体有动量，只是波长极小。"},
+        {"text": "粒子速度一定等于光速", "isCorrect": false, "rationale": "实物粒子速度通常小于光速。"}
+      ],
+      "hint": "物质波。"
+    },
+    {
+      "type": "multiple-choice",
+      "question": "波函数的概率解释对应哪一项？",
+      "answerOptions": [
+        {"text": "Ψ", "isCorrect": false, "rationale": "Ψ 通常是复函数。"},
+        {"text": "|Ψ|²", "isCorrect": true, "rationale": "|Ψ|² 表示概率密度。"},
+        {"text": "1/Ψ", "isCorrect": false, "rationale": "没有概率密度意义。"},
+        {"text": "∂Ψ/∂t", "isCorrect": false, "rationale": "这不是概率密度。"}
+      ],
+      "hint": "玻恩统计解释。"
+    },
+    {
+      "type": "fill-in-the-blank",
+      "prompt": "光电效应方程为 ______。",
+      "answer": "hν=W+1/2mv_m^2"
+    },
+    {
+      "type": "fill-in-the-blank",
+      "prompt": "氢原子能级公式为 ______。",
+      "answer": "E_n=-13.6eV/n^2"
+    },
+    {
+      "type": "fill-in-the-blank",
+      "prompt": "测不准关系为 ______。",
+      "answer": "ΔxΔp_x≥ħ/2"
+    },
+    {
+      "type": "fill-in-the-blank",
+      "prompt": "宽度为 a 的一维无限深势阱能级为 ______。",
+      "answer": "E_n=n^2π^2ħ^2/(2ma^2)"
+    },
+    {
+      "type": "application-with-diagram",
+      "title": "光电效应伏安曲线",
+      "diagramDescription": "频率相同、光强不同的两条伏安曲线：饱和电流不同，遏止电压相同。",
+      "question": "解释为什么光强较大时饱和电流更大，但遏止电压不变。",
+      "answer": "频率相同则单个光子能量相同，最大初动能相同，所以遏止电压相同；光强较大表示单位时间光子数更多，逸出光电子数更多，所以饱和电流更大。"
+    },
+    {
+      "type": "application-with-diagram",
+      "title": "一维无限深势阱",
+      "diagramDescription": "宽度 a 的势阱内 V=0，阱外 V=∞，能级按 n² 增长。",
+      "question": "若阱宽变为 2a，同一量子数 n 的能级怎样变化？",
+      "answer": "由 E_n=n²π²ħ²/(2ma²)，能级与 1/a² 成正比；宽度变为 2a 后，能级变为原来的 1/4。"
+    }
+  ]
+}

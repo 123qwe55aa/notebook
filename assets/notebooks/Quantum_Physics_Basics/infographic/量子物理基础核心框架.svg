@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">第15章 量子物理基础核心框架</title>
+  <desc id="desc">黑体辐射、光量子性、玻尔氢原子、物质波、测不准关系、波函数和薛定谔方程的复习框架。</desc>
+  <rect width="1400" height="900" fill="#f7f4ea"/>
+  <rect x="44" y="38" width="1312" height="824" rx="18" fill="#fffdf7" stroke="#252a31" stroke-width="4"/>
+  <text x="84" y="112" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="54" font-weight="800" fill="#15191f">第15章 量子物理基础</text>
+  <text x="86" y="158" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="24" fill="#59616d">从经典物理危机到概率波：能量量子化、光子、物质波、测不准与薛定谔方程</text>
+  <g font-family="PingFang SC, Microsoft YaHei, sans-serif">
+    <g transform="translate(84 210)">
+      <rect width="360" height="235" rx="12" fill="#e8f3f1" stroke="#007f73" stroke-width="3"/>
+      <text x="24" y="45" font-size="30" font-weight="800" fill="#005c55">1 黑体辐射</text>
+      <text x="24" y="92" font-size="22" fill="#1d2b2b">M=σT⁴</text>
+      <text x="24" y="128" font-size="22" fill="#1d2b2b">λmT=b</text>
+      <text x="24" y="164" font-size="22" fill="#1d2b2b">ε=hν</text>
+      <text x="24" y="204" font-size="18" fill="#52605f">经典公式失败，普朗克提出能量子</text>
+    </g>
+    <g transform="translate(520 210)">
+      <rect width="360" height="235" rx="12" fill="#fff1d8" stroke="#c58918" stroke-width="3"/>
+      <text x="24" y="45" font-size="30" font-weight="800" fill="#80500a">2 光的量子性</text>
+      <text x="24" y="92" font-size="22" fill="#2d2518">E=hν=hc/λ</text>
+      <text x="24" y="128" font-size="22" fill="#2d2518">hν=W+Ekmax</text>
+      <text x="24" y="164" font-size="22" fill="#2d2518">Δλ=λC(1-cosφ)</text>
+      <text x="24" y="204" font-size="18" fill="#665944">光电效应与康普顿效应证明光子性</text>
+    </g>
+    <g transform="translate(956 210)">
+      <rect width="360" height="235" rx="12" fill="#f5e7df" stroke="#b6572f" stroke-width="3"/>
+      <text x="24" y="45" font-size="30" font-weight="800" fill="#884020">3 玻尔氢原子</text>
+      <text x="24" y="92" font-size="22" fill="#32231e">L=nℏ</text>
+      <text x="24" y="128" font-size="22" fill="#32231e">En=-13.6eV/n²</text>
+      <text x="24" y="164" font-size="22" fill="#32231e">hν=Ei-Ef</text>
+      <text x="24" y="204" font-size="18" fill="#69544b">解释氢光谱，但不是完整量子力学</text>
+    </g>
+    <g transform="translate(84 520)">
+      <rect width="360" height="245" rx="12" fill="#eef0f5" stroke="#303944" stroke-width="3"/>
+      <text x="24" y="45" font-size="30" font-weight="800" fill="#26303b">4 物质波</text>
+      <text x="24" y="96" font-size="22" fill="#202833">λ=h/p</text>
+      <text x="24" y="138" font-size="21" fill="#202833">电子衍射验证波动性</text>
+      <text x="24" y="180" font-size="21" fill="#202833">Born：波强对应概率</text>
+      <text x="24" y="218" font-size="18" fill="#66707c">宏观物体波长极小，通常不可观测</text>
+    </g>
+    <g transform="translate(520 520)">
+      <rect width="360" height="245" rx="12" fill="#eef7dc" stroke="#7a9122" stroke-width="3"/>
+      <text x="24" y="45" font-size="30" font-weight="800" fill="#586b14">5 测不准关系</text>
+      <text x="24" y="96" font-size="22" fill="#252b14">ΔxΔpx≥ℏ/2</text>
+      <text x="24" y="138" font-size="22" fill="#252b14">ΔEΔt≥ℏ/2</text>
+      <text x="24" y="180" font-size="21" fill="#252b14">不是测量误差</text>
+      <text x="24" y="218" font-size="18" fill="#59613b">解释微观粒子无经典确定轨道</text>
+    </g>
+    <g transform="translate(956 520)">
+      <rect width="360" height="245" rx="12" fill="#efe9f6" stroke="#66519a" stroke-width="3"/>
+      <text x="24" y="45" font-size="30" font-weight="800" fill="#4f3d80">6 薛定谔方程</text>
+      <text x="24" y="94" font-size="21" fill="#2b2536">|Ψ|²：概率密度</text>
+      <text x="24" y="132" font-size="21" fill="#2b2536">∫|Ψ|²dV=1</text>
+      <text x="24" y="170" font-size="20" fill="#2b2536">iℏ∂Ψ/∂t=-(ℏ²/2m)∇²Ψ+VΨ</text>
+      <text x="24" y="214" font-size="18" fill="#655b73">无限深势阱：En=n²π²ℏ²/(2ma²)</text>
+    </g>
+  </g>
+</svg>

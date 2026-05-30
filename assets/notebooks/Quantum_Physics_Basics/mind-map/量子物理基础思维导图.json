@@ -1,0 +1,72 @@
+{
+  "name": "第15章 量子物理基础",
+  "children": [
+    {
+      "name": "黑体辐射与量子假设",
+      "children": [
+        {"name": "黑体模型：完全吸收"},
+        {"name": "Stefan-Boltzmann: M=σT^4"},
+        {"name": "Wien: λmT=b"},
+        {"name": "Planck: ε=hν"}
+      ]
+    },
+    {
+      "name": "光的量子性",
+      "children": [
+        {"name": "光电效应：红限频率"},
+        {"name": "Einstein 方程: hν=W+Ekmax"},
+        {"name": "光子能量: E=hν"},
+        {"name": "光子动量: p=h/λ"},
+        {"name": "Compton 散射: Δλ=λC(1-cosφ)"}
+      ]
+    },
+    {
+      "name": "玻尔氢原子",
+      "children": [
+        {"name": "定态假设"},
+        {"name": "频率假设: hν=Ei-Ef"},
+        {"name": "角动量量子化: L=nħ"},
+        {"name": "半径: rn=n²r1"},
+        {"name": "能级: En=-13.6eV/n²"},
+        {"name": "局限：复杂原子与精细结构"}
+      ]
+    },
+    {
+      "name": "粒子的波动性",
+      "children": [
+        {"name": "de Broglie: λ=h/p"},
+        {"name": "电子衍射实验验证"},
+        {"name": "Born 统计解释"},
+        {"name": "波粒二象性"}
+      ]
+    },
+    {
+      "name": "测不准关系",
+      "children": [
+        {"name": "ΔxΔpx≥ħ/2"},
+        {"name": "ΔEΔt≥ħ/2"},
+        {"name": "不是仪器误差"},
+        {"name": "轨道概念失效"}
+      ]
+    },
+    {
+      "name": "波函数与薛定谔方程",
+      "children": [
+        {"name": "概率密度: |Ψ|²"},
+        {"name": "归一化: ∫|Ψ|²dV=1"},
+        {"name": "标准条件：单值、有限、连续"},
+        {"name": "含时薛定谔方程"},
+        {"name": "定态薛定谔方程"}
+      ]
+    },
+    {
+      "name": "一维无限深势阱",
+      "children": [
+        {"name": "边界条件: ψ=0"},
+        {"name": "能级分立"},
+        {"name": "En=n²π²ħ²/(2ma²)"},
+        {"name": "零点能 E1>0"}
+      ]
+    }
+  ]
+}
