@@ -446,15 +446,15 @@ function openEmbed(url, type, name) {
     embedBody.appendChild(el);
   } else if (type === 'video') {
     const id = url.match(/[?&]id=([^&]+)/)?.[1] || url.split('/').pop();
-    const el = document.createElement('iframe');
-    el.src = `https://drive.google.com/file/d/${id}/preview`;
-    el.allow = 'autoplay';
+    const el = document.createElement('video');
+    el.src = `https://drive.usercontent.google.com/download?id=${id}`;
+    el.controls = true; el.autoplay = true;
     embedBody.appendChild(el);
   } else if (type === 'audio') {
     const id = url.match(/[?&]id=([^&]+)/)?.[1] || url.split('/').pop();
-    const el = document.createElement('iframe');
-    el.src = `https://drive.google.com/file/d/${id}/preview`;
-    el.allow = 'autoplay';
+    const el = document.createElement('audio');
+    el.src = `https://drive.usercontent.google.com/download?id=${id}`;
+    el.controls = true; el.autoplay = true;
     embedBody.appendChild(el);
   } else if (type === 'img') {
     const el = document.createElement('img');
