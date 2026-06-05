@@ -445,20 +445,14 @@ function openEmbed(url, type, name) {
     el.src = url;
     embedBody.appendChild(el);
   } else if (type === 'video') {
-    const id = url.match(/[?&]id=([^&]+)/)?.[1] || url.split('/').pop();
-    const el = document.createElement('iframe');
-    el.src = `https://drive.google.com/file/d/${id}/preview`;
-    el.allow = 'autoplay';
-    el.style.width = '100%';
-    el.style.height = '100%';
+    const el = document.createElement('video');
+    el.src = url; el.controls = true; el.autoplay = true;
+    el.style.maxWidth = '100%'; el.style.maxHeight = '100%';
     embedBody.appendChild(el);
   } else if (type === 'audio') {
-    const id = url.match(/[?&]id=([^&]+)/)?.[1] || url.split('/').pop();
-    const el = document.createElement('iframe');
-    el.src = `https://drive.google.com/file/d/${id}/preview`;
-    el.allow = 'autoplay';
+    const el = document.createElement('audio');
+    el.src = url; el.controls = true; el.autoplay = true;
     el.style.width = '100%';
-    el.style.height = '100%';
     embedBody.appendChild(el);
   } else if (type === 'img') {
     const el = document.createElement('img');
