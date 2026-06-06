@@ -14,6 +14,7 @@
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
   <script defer src="app.js?v=playground7"></script>
+  <script defer src="simulations.js"></script>
   <script>
     /* Scroll-spy: highlight active nav link */
     document.addEventListener('DOMContentLoaded', () => {
@@ -96,6 +97,36 @@
       </div>
       <div class="chapter-tabs" id="chapterTabs" role="tablist" aria-label="章节选择"></div>
       <div class="playground" id="chapterPanel"></div>
+      <!-- Weak Area Summary Panel -->
+      <div class="weak-panel" id="weakPanel">
+        <div class="weak-panel-header">
+          <span class="eyebrow">Progress Dashboard</span>
+          <h3>学习进度与薄弱分析</h3>
+        </div>
+        <div class="weak-panel-grid">
+          <div class="weak-stat">
+            <span class="weak-stat-label">已答题数</span>
+            <strong class="weak-stat-value" id="weakAnswered">0</strong>
+            <span class="weak-stat-sub" id="weakTotal">/ 0 题</span>
+          </div>
+          <div class="weak-stat">
+            <span class="weak-stat-label">正确率</span>
+            <strong class="weak-stat-value" id="weakAccuracy">--</strong>
+            <span class="weak-stat-sub">%</span>
+          </div>
+          <div class="weak-stat">
+            <span class="weak-stat-label">最弱章节</span>
+            <strong class="weak-stat-value" id="weakestChapter">--</strong>
+            <span class="weak-stat-sub" id="weakestAccuracy"></span>
+          </div>
+          <div class="weak-stat">
+            <span class="weak-stat-label">复习建议</span>
+            <div class="weak-suggestions" id="weakSuggestions">
+              <p>开始答题后将自动生成复习建议。</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="section formula-section" id="formulas" aria-labelledby="formula-title">
@@ -120,11 +151,20 @@
           <p class="eyebrow">Quick Mock</p>
           <h2 id="mock-title">跨章节 5 题小测</h2>
         </div>
-        <button class="button ghost compact" id="resetQuiz" type="button">重做一遍</button>
+        <div class="quiz-actions">
+          <button class="button ghost compact" id="resetQuiz" type="button">重做一遍</button>
+          <button class="button ghost compact" id="timerToggle" type="button">⏱ 计时模式</button>
+          <button class="button ghost compact" id="flashcardBtn" type="button">📇 闪卡复习</button>
+        </div>
       </div>
       <div class="quiz-layout">
         <div id="quizList" class="quiz-list"></div>
-        <aside class="score-card"><p>当前得分</p><strong id="scoreText">0 / 0</strong><span>答完后回到上面的章节工作台补弱项。</span></aside>
+        <aside class="score-card">
+          <p>当前得分</p>
+          <strong id="scoreText">0 / 0</strong>
+          <span id="quizTimerDisplay"></span>
+          <span>答完后回到上面的章节工作台补弱项。</span>
+        </aside>
       </div>
     </section>
 
@@ -647,6 +687,27 @@
         <div class="embed-viewer-body" id="embedBody"></div>
       </div>
       <div class="embed-overlay" id="embedOverlay"></div>
+
+      <!-- Flashcard modal -->
+      <div class="flashcard-viewer" id="flashcardViewer">
+        <div class="flashcard-viewer-header">
+          <span class="flashcard-viewer-title">📇 闪卡复习</span>
+          <div class="flashcard-viewer-counter" id="flashcardCounter">Card 1 / 0</div>
+          <button class="button ghost compact" id="flashcardClose" aria-label="关闭闪卡">✕ 关闭</button>
+        </div>
+        <div class="flashcard-body" id="flashcardBody">
+          <div class="flashcard-container" id="flashcardContainer">
+            <div class="flashcard-inner" id="flashcardInner">
+              <div class="flashcard-front" id="flashcardFront">点击翻面</div>
+              <div class="flashcard-back" id="flashcardBack">答案</div>
+            </div>
+          </div>
+          <div class="flashcard-controls">
+            <button class="button ghost compact" id="flashcardPrev" type="button">← 上一张</button>
+            <button class="button ghost compact" id="flashcardNext" type="button">下一张 →</button>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 

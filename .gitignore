@@ -1,2 +1,4 @@
 .DS_Store
 assets/.DS_Store
+# Media assets are hosted on Cloudinary — local copies not pushed to git
+assets/

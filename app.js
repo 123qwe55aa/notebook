@@ -135,10 +135,15 @@ function renderTabs() {
 }
 
 function renderChapter() {
-  const ch = chapters[activeChapter];
-  document.querySelector('#chapterPanel').innerHTML = `
+  const panel = document.querySelector('#chapterPanel');
+  panel.classList.add('switching');
+  setTimeout(() => {
+    const ch = chapters[activeChapter];
+    const chProgress = loadChapterProgress(activeChapter);
+    const hasProgress = Object.keys(chProgress).length > 0;
+    panel.innerHTML = `
     <article class="note-board">
-      <div class="board-header"><span>CH ${ch.number}</span><h3>${ch.title}</h3><a href="${ch.source}">${ch.sourceLabel}</a></div>
+      <div class="board-header"><span>CH ${ch.number}</span><h3>${ch.title}</h3><a href="${ch.source}">${ch.sourceLabel}</a>${hasProgress ? `<button class="reset-progress-btn" data-chapter="${activeChapter}" type="button">重置本章进度</button>` : ''}</div>
       <p class="chapter-summary">${ch.summary}</p>
       <div class="note-grid">
         <section><h4>核心概念</h4><ul>${listItems(ch.concepts)}</ul></section>
@@ -147,15 +152,246 @@ function renderChapter() {
       </div>
     </article>
     <article class="practice-board">
-      <div class="practice-column"><h4>选择题</h4>${ch.multiple.map((q, i) => renderChoice(q, i)).join('')}</div>
+      <div class="practice-column"><h4>选择题</h4>${ch.multiple.map((q, i) => renderChoice(q, i, activeChapter)).join('')}</div>
       <div class="practice-column"><h4>填空题</h4>${ch.blanks.map((q, i) => renderBlank(q, i)).join('')}</div>
       <div class="application-card"><h4>应用图题：${ch.application.title}</h4>${ch.diagram ? diagramSvg(ch.diagram) : ''}<p>${ch.application.prompt}</p><button class="reveal-app" type="button">显示解题思路</button><div class="app-answer">${ch.application.answer}</div></div>
     </article>`;
+    // Add simulator toggle for electrostatic and magnetostatic chapters
+    const toggleHtml = {
+      'electrostatic': '<button class="sim-toggle-btn" data-sim="electric" type="button">🔬 电场模拟器</button><div id="electricFieldSim"></div>',
+      'magnetostatic': '<button class="sim-toggle-btn" data-sim="magnetic" type="button">🧲 磁场模拟器</button><div id="magneticFieldSim"></div>'
+    }[ch.id];
+    if (toggleHtml) {
+      panel.insertAdjacentHTML('beforeend', toggleHtml);
+    }
+    setTimeout(() => panel.classList.remove('switching'), 50);
+    if (window.MathJax?.typesetPromise) MathJax.typesetPromise();
+  }, 120);
+}
+
+function renderChoice(item, i, chapterIndex) {
+  const progress = loadChapterProgress(chapterIndex);
+  const saved = progress[i];
+  let markHtml = '';
+  if (saved === 'correct') markHtml = '<span class="chapter-progress-mark correct">✅</span>';
+  else if (saved === 'wrong') markHtml = '<span class="chapter-progress-mark wrong">❌</span>';
+  return `<div class="mini-quiz" data-kind="chapter-choice" data-answer="${item.answer}" data-chapter="${chapterIndex}" data-question="${i}"><p>${i + 1}. ${item.q}${markHtml}</p><div class="options">${item.options.map((op, index) => `<button class="option" type="button" data-option="${index}">${op}</button>`).join('')}</div><div class="explain">${item.explain}</div></div>`;
+}
+
+function loadChapterProgress(chapterIndex) {
+  try {
+    const data = JSON.parse(localStorage.getItem('physicsPlaygroundProgress') || '{}');
+    return data[String(chapterIndex)] || {};
+  } catch { return {}; }
+}
+
+function saveChapterProgress(chapterIndex, questionIndex, isCorrect) {
+  const data = JSON.parse(localStorage.getItem('physicsPlaygroundProgress') || '{}');
+  if (!data[String(chapterIndex)]) data[String(chapterIndex)] = {};
+  data[String(chapterIndex)][String(questionIndex)] = isCorrect ? 'correct' : 'wrong';
+  localStorage.setItem('physicsPlaygroundProgress', JSON.stringify(data));
+}
+
+function resetChapterProgress(chapterIndex) {
+  const data = JSON.parse(localStorage.getItem('physicsPlaygroundProgress') || '{}');
+  delete data[String(chapterIndex)];
+  localStorage.setItem('physicsPlaygroundProgress', JSON.stringify(data));
+}
+
+function updateWeakPanel() {
+  const data = JSON.parse(localStorage.getItem('physicsPlaygroundProgress') || '{}');
+  let totalAnswered = 0;
+  let totalCorrect = 0;
+  const chapterStats = chapters.map((ch, idx) => {
+    const answers = data[String(idx)] || {};
+    const answered = Object.keys(answers).length;
+    const correct = Object.values(answers).filter(v => v === 'correct').length;
+    const accuracy = answered > 0 ? Math.round((correct / answered) * 100) : null;
+    totalAnswered += answered;
+    totalCorrect += correct;
+    return { chapterIdx: idx, title: ch.title, answered, correct, accuracy };
+  });
+
+  const weakAnswered = document.getElementById('weakAnswered');
+  const weakTotal = document.getElementById('weakTotal');
+  const weakAccuracy = document.getElementById('weakAccuracy');
+  const weakestChapter = document.getElementById('weakestChapter');
+  const weakestAccuracy = document.getElementById('weakestAccuracy');
+  const weakSuggestions = document.getElementById('weakSuggestions');
+
+  if (weakAnswered) weakAnswered.textContent = totalAnswered;
+  if (weakTotal) weakTotal.textContent = `/ ${chapters.reduce((s, ch) => s + ch.multiple.length, 0)} 题`;
+  if (weakAccuracy) weakAccuracy.textContent = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : '--';
+
+  const answeredChapters = chapterStats.filter(s => s.answered > 0);
+  let weakest = null;
+  if (answeredChapters.length > 0) {
+    weakest = answeredChapters.reduce((min, s) => (s.accuracy < min.accuracy ? s : min), answeredChapters[0]);
+  }
+
+  if (weakestChapter) {
+    weakestChapter.textContent = weakest ? weakest.title : '--';
+  }
+  if (weakestAccuracy) {
+    weakestAccuracy.textContent = weakest ? `${weakest.accuracy}% 正确率` : '';
+  }
+
+  if (weakSuggestions) {
+    if (totalAnswered === 0) {
+      weakSuggestions.innerHTML = '<p>开始答题后将自动生成复习建议。</p>';
+    } else if (weakest) {
+      const weakCh = chapters[weakest.chapterIdx];
+      const concepts = weakCh.concepts.slice(0, 3);
+      const mistakes = weakCh.mistakes.slice(0, 2);
+      let html = `<p><strong>${weakest.title}</strong> 是薄弱环节（${weakest.accuracy}% 正确率）。建议复习：</p><ul>`;
+      concepts.forEach(c => { html += `<li>${c.replace(/\$\$|\$/g, '')}</li>`; });
+      mistakes.forEach(m => { html += `<li>⚠ ${m.replace(/\$\$|\$/g, '')}</li>`; });
+      html += '</ul>';
+      weakSuggestions.innerHTML = html;
+      if (window.MathJax?.typesetPromise) MathJax.typesetPromise();
+    } else {
+      weakSuggestions.innerHTML = '<p>继续练习以获取更精确的分析。</p>';
+    }
+  }
+}
+
+// ── Timed Quiz Mode ────────────────────────────────────
+let timerActive = false;
+let timerInterval = null;
+let timerSeconds = 0;
+const QUIZ_TIME_SECONDS = 15 * 60; // 15 min
+
+function formatTime(seconds) {
+  const m = Math.floor(seconds / 60);
+  const s = seconds % 60;
+  return `⏱ ${m}:${String(s).padStart(2, '0')} remaining`;
+}
+
+function startTimer() {
+  timerActive = true;
+  timerSeconds = QUIZ_TIME_SECONDS;
+  const display = document.getElementById('quizTimerDisplay');
+  const scoreCard = document.querySelector('.score-card');
+  if (display) display.textContent = formatTime(timerSeconds);
+  if (scoreCard) scoreCard.classList.add('timer-active');
+
+  timerInterval = setInterval(() => {
+    timerSeconds--;
+    if (display) {
+      display.textContent = formatTime(timerSeconds);
+      if (timerSeconds <= 120) {
+        display.classList.add('timer-urgent');
+        if (scoreCard) scoreCard.classList.add('timer-urgent');
+      }
+    }
+    if (timerSeconds <= 0) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      timerActive = false;
+      autoSubmitQuiz();
+    }
+  }, 1000);
+}
+
+function stopTimer() {
+  if (timerInterval) {
+    clearInterval(timerInterval);
+    timerInterval = null;
+  }
+  timerActive = false;
+  const display = document.getElementById('quizTimerDisplay');
+  const scoreCard = document.querySelector('.score-card');
+  if (display) {
+    display.textContent = '';
+    display.classList.remove('timer-urgent');
+  }
+  if (scoreCard) {
+    scoreCard.classList.remove('timer-active');
+    scoreCard.classList.remove('timer-urgent');
+  }
+}
+
+function autoSubmitQuiz() {
+  document.querySelectorAll('.quiz-card').forEach(card => {
+    if (!card.classList.contains('answered')) {
+      const options = card.querySelectorAll('.option');
+      if (options.length > 0) {
+        // Mark first option as wrong to trigger "answered" state without adding a correct answer
+        card.classList.add('answered');
+        card.dataset.correct = 'false';
+        const correctIndex = Number(card.dataset.answer);
+        options.forEach((btn, idx) => {
+          if (idx === correctIndex) btn.classList.add('correct');
+        });
+      }
+    }
+  });
+  updateScore();
+  const display = document.getElementById('quizTimerDisplay');
+  if (display) display.textContent = '⏱ 时间到！';
+}
+
+// ── Flashcard Mode ─────────────────────────────────────
+let flashcardData = [];
+let flashcardIndex = 0;
+let flashcardOpen = false;
+
+function buildFlashcardData() {
+  const cards = [];
+  chapters.forEach(ch => {
+    // Add formulas as flashcards
+    ch.formulas.forEach(f => {
+      cards.push({ front: ch.title + ': 公式', back: f });
+    });
+    // Add concepts as flashcards
+    ch.concepts.slice(0, 4).forEach(c => {
+      cards.push({ front: ch.title, back: c });
+    });
+  });
+  return cards;
+}
+
+function openFlashcard() {
+  flashcardData = buildFlashcardData();
+  flashcardIndex = 0;
+  const viewer = document.getElementById('flashcardViewer');
+  if (viewer) viewer.classList.add('active');
+  flashcardOpen = true;
+  showFlashcard(0);
+}
+
+function closeFlashcard() {
+  const viewer = document.getElementById('flashcardViewer');
+  if (viewer) viewer.classList.remove('active');
+  flashcardOpen = false;
+}
+
+function showFlashcard(index) {
+  if (!flashcardData.length) return;
+  flashcardIndex = Math.max(0, Math.min(index, flashcardData.length - 1));
+  const card = flashcardData[flashcardIndex];
+  const front = document.getElementById('flashcardFront');
+  const back = document.getElementById('flashcardBack');
+  const counter = document.getElementById('flashcardCounter');
+  const inner = document.getElementById('flashcardInner');
+  if (front) front.innerHTML = card.front;
+  if (back) back.innerHTML = card.back;
+  if (counter) counter.textContent = `Card ${flashcardIndex + 1} / ${flashcardData.length}`;
+  if (inner) inner.classList.remove('flipped');
   if (window.MathJax?.typesetPromise) MathJax.typesetPromise();
 }
 
-function renderChoice(item, i) {
-  return `<div class="mini-quiz" data-kind="chapter-choice" data-answer="${item.answer}"><p>${i + 1}. ${item.q}</p><div class="options">${item.options.map((op, index) => `<button class="option" type="button" data-option="${index}">${op}</button>`).join('')}</div><div class="explain">${item.explain}</div></div>`;
+function flipFlashcard() {
+  const inner = document.getElementById('flashcardInner');
+  if (inner) inner.classList.toggle('flipped');
+}
+
+function prevFlashcard() {
+  if (flashcardIndex > 0) showFlashcard(flashcardIndex - 1);
+}
+
+function nextFlashcard() {
+  if (flashcardIndex < flashcardData.length - 1) showFlashcard(flashcardIndex + 1);
 }
 
 function renderBlank(item, i) {
@@ -325,6 +561,15 @@ document.addEventListener('click', event => {
       if (index === correct) button.classList.add('correct');
       if (index === chosen && chosen !== correct) button.classList.add('wrong');
     });
+    // Save progress for chapter choices
+    const chapterIdx = card.dataset.chapter;
+    const questionIdx = card.dataset.question;
+    if (chapterIdx !== undefined && questionIdx !== undefined) {
+      saveChapterProgress(Number(chapterIdx), Number(questionIdx), chosen === correct);
+      updateWeakPanel();
+      // Re-render to update mark
+      renderChapter();
+    }
     if (card.dataset.kind === 'mock') updateScore();
     return;
   }
@@ -341,6 +586,14 @@ document.addEventListener('click', event => {
     if (window.MathJax?.typesetPromise) MathJax.typesetPromise();
     return;
   }
+  const resetBtn = event.target.closest('.reset-progress-btn');
+  if (resetBtn) {
+    const ch = Number(resetBtn.dataset.chapter);
+    resetChapterProgress(ch);
+    updateWeakPanel();
+    renderChapter();
+    return;
+  }
   const chip = event.target.closest('.chapter-chip');
   if (chip) {
     const input = document.querySelector('#exerciseSection');
@@ -355,9 +608,56 @@ document.addEventListener('click', event => {
     document.querySelector('#exerciseType').value = 'all';
     filterExercises();
   }
+  // Flashcard controls
+  const flashcardContainer = event.target.closest('#flashcardContainer');
+  if (flashcardContainer) {
+    flipFlashcard();
+    return;
+  }
+  const flashcardPrev = event.target.closest('#flashcardPrev');
+  if (flashcardPrev) {
+    prevFlashcard();
+    return;
+  }
+  const flashcardNext = event.target.closest('#flashcardNext');
+  if (flashcardNext) {
+    nextFlashcard();
+    return;
+  }
+  // Simulator toggle
+  const simBtn = event.target.closest('.sim-toggle-btn');
+  if (simBtn) {
+    const simType = simBtn.dataset.sim;
+    const containerId = simType === 'electric' ? 'electricFieldSim' : 'magneticFieldSim';
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const isOpen = container.style.display !== 'none' && container.innerHTML !== '';
+    if (isOpen) {
+      container.style.display = 'none';
+      simBtn.classList.remove('active');
+    } else {
+      container.style.display = 'block';
+      simBtn.classList.add('active');
+      // Initialize if not yet done
+      if (simType === 'electric' && typeof window.initElectricSim === 'function') {
+        window.initElectricSim();
+      } else if (simType === 'magnetic' && typeof window.initMagneticSim === 'function') {
+        window.initMagneticSim();
+      }
+    }
+    return;
+  }
 });
 
-document.querySelector('#resetQuiz').addEventListener('click', renderQuiz);
+document.querySelector('#resetQuiz').addEventListener('click', () => {
+  renderQuiz();
+  if (timerActive) {
+    stopTimer();
+    const toggle = document.querySelector('#timerToggle');
+    if (toggle) toggle.textContent = '⏱ 计时模式';
+    startTimer();
+  }
+});
 document.querySelector('#formulaSearch').addEventListener('input', event => renderFormulas(event.target.value));
 document.querySelector('#exerciseSearch')?.addEventListener('input', filterExercises);
 document.querySelector('#exerciseSection')?.addEventListener('input', filterExercises);
@@ -367,11 +667,44 @@ document.querySelector('#loadMoreExercises')?.addEventListener('click', () => {
   renderExercises();
 });
 
+// Timer toggle
+document.querySelector('#timerToggle').addEventListener('click', function() {
+  if (timerActive) {
+    stopTimer();
+    this.textContent = '⏱ 计时模式';
+  } else {
+    startTimer();
+    this.textContent = '⏱ 停止计时';
+  }
+});
+
+// Flashcard open/close
+document.querySelector('#flashcardBtn').addEventListener('click', openFlashcard);
+document.querySelector('#flashcardClose').addEventListener('click', closeFlashcard);
+
+// Keyboard support for flashcards
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && flashcardOpen) {
+    closeFlashcard();
+    return;
+  }
+  if (!flashcardOpen) return;
+  if (event.key === ' ' || event.key === 'Space') {
+    event.preventDefault();
+    flipFlashcard();
+  } else if (event.key === 'ArrowLeft') {
+    prevFlashcard();
+  } else if (event.key === 'ArrowRight') {
+    nextFlashcard();
+  }
+});
+
 renderTabs();
 renderChapter();
 renderFormulas();
 renderQuiz();
 initExerciseBank();
+updateWeakPanel();
 
 function initExamCountdown() {
   const root = document.querySelector('#examCountdown');
@@ -446,8 +779,8 @@ function openEmbed(url, type, name) {
     embedBody.appendChild(el);
   } else if (type === 'video') {
     const el = document.createElement('video');
-    el.src = url; el.controls = true; el.autoplay = true;
-    el.style.maxWidth = '100%'; el.style.maxHeight = '100%';
+    el.src = url; el.controls = true; el.autoplay = true; el.playsinline = true;
+    el.style.objectFit = 'contain';
     embedBody.appendChild(el);
   } else if (type === 'audio') {
     const el = document.createElement('audio');
