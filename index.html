@@ -35,6 +35,7 @@
   <a class="skip-nav" href="#playground">跳过导航，直接进入练习场</a>
   <header class="hero" id="top">
     <nav class="nav" aria-label="主导航">
+      <a href="#announcement">速查</a>
       <a href="#playground">Playground</a>
       <a href="#formulas">公式</a>
       <a href="#mock">小测</a>
@@ -84,6 +85,95 @@
         <article><span>01</span><h3>读核心笔记</h3><p>先用每章左侧笔记抓住概念、公式和易错点，明确“什么时候能用这个公式”。</p></article>
         <article><span>02</span><h3>马上做题</h3><p>选择题练判断，填空题练公式回忆，提交后可展开解析，不需要跳出页面。</p></article>
         <article><span>03</span><h3>画图建模</h3><p>应用题配有 SVG 物理示意图，训练高斯面、安培环路、磁通变化这些考试核心动作。</p></article>
+      </div>
+    </section>
+
+    <section class="section announcement" id="announcement" aria-labelledby="announcement-title">
+      <div class="section-heading split">
+        <div>
+          <p class="eyebrow">📌 临考必记</p>
+          <h2 id="announcement-title">物理常量和稳恒磁场模型速查</h2>
+        </div>
+        <p class="note">考前 10 分钟扫一遍：先记数字，再记三种对称性下的场强表达式。</p>
+      </div>
+
+      <div class="announce-grid">
+        <article class="announce-card constants">
+          <h3>一、基础物理常量（必背）</h3>
+          <ul class="const-list">
+            <li><span class="c-name">质子质量</span><span class="c-val">$m_p = 1.673\times10^{-27}\,\text{kg}$</span><span class="c-num">≈ 1836 m<sub>e</sub></span></li>
+            <li><span class="c-name">电子质量</span><span class="c-val">$m_e = 9.11\times10^{-31}\,\text{kg}$</span><span class="c-num">≈ 0.511 MeV/c²</span></li>
+            <li><span class="c-name">普朗克常量</span><span class="c-val">$h = 6.626\times10^{-34}\,\text{J·s}$</span><span class="c-num">ℏ = h/2π ≈ 1.055×10⁻³⁴</span></li>
+            <li><span class="c-name">1 电子伏特</span><span class="c-val">$1\,\text{eV} = 1.602\times10^{-19}\,\text{J}$</span><span class="c-num">是能量单位，不是电压</span></li>
+            <li><span class="c-name">里伯德常数</span><span class="c-val">$R = 1.097\times10^{7}\,\text{m}^{-1}$</span><span class="c-num">氢原子光谱用</span></li>
+            <li><span class="c-name">真空介电常数</span><span class="c-val">$\varepsilon_0 = 8.85\times10^{-12}\,\text{F/m}$</span><span class="c-num">k = 1/(4πε₀) ≈ 9.0×10⁹</span></li>
+            <li><span class="c-name">真空磁导率</span><span class="c-val">$\mu_0 = 4\pi\times10^{-7}\,\text{H/m}$</span><span class="c-num">≈ 1.257×10⁻⁶</span></li>
+            <li><span class="c-name">真空光速</span><span class="c-val">$c = 3.00\times10^{8}\,\text{m/s}$</span><span class="c-num">c² = 1/(μ₀ε₀)</span></li>
+          </ul>
+          <p class="announce-tip">⚠️ 考试如果给 ε₀ 和 μ₀ 的具体数值（不让你背），就用 c = 1/√(μ₀ε₀) 推；如果让背，看清楚是相对值（εᵣ、μᵣ）还是绝对值。</p>
+        </article>
+
+        <article class="announce-card models">
+          <h3>二、稳恒磁场固定模型（必背）</h3>
+          <p class="announce-sub">核心思路：<strong>对称性 → 高斯面/安培环路 → 积分号外提常数</strong></p>
+          <table class="model-table">
+            <thead>
+              <tr><th>模型</th><th>场强公式</th><th>方向 / 说明</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>无限长直导线</td>
+                <td>$B = \dfrac{\mu_0 I}{2\pi r}$</td>
+                <td>右手螺旋：拇指电流方向，四指环绕</td>
+              </tr>
+              <tr>
+                <td>长直螺线管内部</td>
+                <td>$B = \mu_0 n I$</td>
+                <td>n = 单位长度匝数；外部≈0</td>
+              </tr>
+              <tr>
+                <td>环形螺线管（螺绕环）</td>
+                <td>$B = \dfrac{\mu_0 N I}{2\pi r}$</td>
+                <td>N 总匝数；r 环半径；环外≈0</td>
+              </tr>
+              <tr>
+                <td>圆电流圆心</td>
+                <td>$B = \dfrac{\mu_0 I}{2R}$</td>
+                <td>轴线上 R 为圆电流半径</td>
+              </tr>
+              <tr>
+                <td>圆电流轴线上</td>
+                <td>$B = \dfrac{\mu_0 I R^2}{2(R^2 + x^2)^{3/2}}$</td>
+                <td>x 为圆心到该点距离</td>
+              </tr>
+              <tr>
+                <td>无限大均匀电流面</td>
+                <td>$B = \dfrac{\mu_0 i}{2}$</td>
+                <td>i = 单位宽度电流（面电流密度）</td>
+              </tr>
+              <tr>
+                <td>两平行长直导线间</td>
+                <td>$B = \dfrac{\mu_0 I_1}{2\pi r_1} \pm \dfrac{\mu_0 I_2}{2\pi r_2}$</td>
+                <td>同向相吸，反向相斥</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="announce-tip">💡 速记口诀：<strong>直 1/r、螺 n 常、环 N/r、圆 1/R</strong>。注意区分"圆电流圆心"和"圆电流轴线"两个公式容易混！</p>
+        </article>
+
+        <article class="announce-card cheatsheet">
+          <h3>三、考前 3 分钟自测清单</h3>
+          <ol class="check-list">
+            <li>✅ 库仑定律 $F = kq_1q_2/r^2$，$k = 9.0\times10^9$</li>
+            <li>✅ 高斯定理 $\oint \vec E \cdot d\vec A = Q_{enc}/\varepsilon_0$</li>
+            <li>✅ 洛伦兹力 $F = qvB\sin\theta$（力垂直于 v-B 平面，不做功）</li>
+            <li>✅ 安培力 $F = BIl\sin\theta$（判断方向用左手定则）</li>
+            <li>✅ 法拉第 $\varepsilon = -N d\Phi_B/dt$（负号 = 楞次定律）</li>
+            <li>✅ 动生 $\varepsilon = Blv$（B⊥l⊥v 时）</li>
+            <li>✅ 位移电流 $I_d = \varepsilon_0 d\Phi_E/dt$（让安培环路在电容器处成立）</li>
+            <li>✅ 麦克斯韦方程组：两个高斯 + 两个环路（电生磁、磁生电）</li>
+          </ol>
+        </article>
       </div>
     </section>
 

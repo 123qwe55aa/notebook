@@ -2131,3 +2131,200 @@ li {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* ============================== */
+/* 临考必记 Announcement Section  */
+/* ============================== */
+
+.announcement {
+  background: linear-gradient(135deg, rgba(255, 248, 230, 0.55), rgba(255, 240, 220, 0.45));
+  border: 1px solid rgba(212, 160, 60, 0.35);
+  border-radius: 18px;
+  padding: 2rem 1.5rem;
+  margin: 1.5rem auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.announcement::before {
+  content: '📌';
+  position: absolute;
+  font-size: 8rem;
+  opacity: 0.06;
+  right: -1rem;
+  top: -2rem;
+  pointer-events: none;
+}
+
+.announce-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.announce-card {
+  background: var(--card-bg, #fff);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  padding: 1.25rem 1.1rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.announce-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.announce-card h3 {
+  font-size: 1.05rem;
+  margin: 0 0 .9rem 0;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid rgba(212, 160, 60, 0.5);
+  color: #b07a1f;
+}
+
+.announce-card.constants h3 { color: #2c6fbb; border-bottom-color: rgba(44, 111, 187, 0.5); }
+.announce-card.models h3 { color: #b07a1f; }
+.announce-card.cheatsheet h3 { color: #2c8a4e; border-bottom-color: rgba(44, 138, 78, 0.5); }
+
+.announce-sub {
+  font-size: .9rem;
+  color: #555;
+  margin: 0 0 1rem 0;
+  padding: .5rem .75rem;
+  background: rgba(212, 160, 60, 0.08);
+  border-left: 3px solid #d4a03c;
+  border-radius: 6px;
+}
+
+.const-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.const-list li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: .6rem;
+  grid-row-gap: .15rem;
+  align-items: baseline;
+  padding: .55rem 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.06);
+  font-size: .92rem;
+}
+
+.const-list li:last-child { border-bottom: none; }
+
+.c-name {
+  grid-column: 1 / 2;
+  font-weight: 600;
+  color: #333;
+  min-width: 90px;
+}
+
+.c-val {
+  grid-column: 2 / 3;
+  font-family: 'Times New Roman', serif;
+  color: #1a4d8f;
+}
+
+.c-num {
+  grid-column: 2 / 3;
+  font-size: .8rem;
+  color: #888;
+  font-style: italic;
+}
+
+.announce-tip {
+  margin-top: 1rem;
+  padding: .65rem .8rem;
+  background: rgba(255, 245, 220, 0.7);
+  border-left: 3px solid #d4a03c;
+  border-radius: 6px;
+  font-size: .88rem;
+  color: #6b4f1a;
+}
+
+.model-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .9rem;
+  margin-top: .5rem;
+}
+
+.model-table th {
+  text-align: left;
+  padding: .55rem .5rem;
+  background: rgba(212, 160, 60, 0.12);
+  color: #6b4f1a;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(212, 160, 60, 0.4);
+}
+
+.model-table td {
+  padding: .55rem .5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  vertical-align: top;
+}
+
+.model-table tr:hover td {
+  background: rgba(212, 160, 60, 0.05);
+}
+
+.model-table td:nth-child(2) {
+  font-family: 'Times New Roman', serif;
+  color: #1a4d8f;
+  white-space: nowrap;
+}
+
+.check-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: chk;
+}
+
+.check-list li {
+  counter-increment: chk;
+  padding: .5rem 0 .5rem 2rem;
+  position: relative;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.06);
+  font-size: .92rem;
+  line-height: 1.5;
+}
+
+.check-list li::before {
+  content: counter(chk);
+  position: absolute;
+  left: 0;
+  top: .55rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  background: linear-gradient(135deg, #2c8a4e, #4caf6a);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .75rem;
+  font-weight: bold;
+}
+
+.check-list li:last-child { border-bottom: none; }
+
+@media (max-width: 960px) {
+  .announce-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .announcement { padding: 1.25rem 1rem; }
+  .const-list li {
+    grid-template-columns: 1fr;
+  }
+  .c-num { grid-column: 1; }
+}
